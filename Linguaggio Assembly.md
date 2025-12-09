@@ -1,0 +1,2 @@
+Il linguaggio assembly è il linguaggio macchina *puro*. Varia da processore a processore ed è un linguaggio che associa ad ogni *keyword* il diretto corrispondente del **linguaggio macchina**.
+Quindi ha bisogno di un livello inferiore di **astrazione**. Quindi non necessita di un compilatore ma di un **traduttore** che associa uno a uno il codice scritto con linguaggio macchina.
