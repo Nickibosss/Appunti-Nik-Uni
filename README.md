@@ -7,3 +7,6 @@ Ho organizzato gli appunti in cartelle. All'interno di ogni cartella ho tutti i 
 
 ## Sono aggiornati questi appunti?
 Si, li aggiorno appena scrivo altro.
+
+## Come mai alcune cose sembrano scritte in modo strano?
+Gli appunti sono stati scritti usando [obsidian](https://www.obsidian.md). Nulla vi ferma da **Clonare il repo** nel vault di obsidian per visualizzarlo bene.
