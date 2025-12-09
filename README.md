@@ -1,5 +1,5 @@
-# Appunti-Nik-2k25
-Gli appunti di Nicola Pascale del corso 2k25 federico 2.
+# Appunti-Nik-Uni
+Gli appunti del corso di Ingegneria Informatica di Nicola Pascale (federico II napoli).
 Vi prego di non mandare questo repo a chiunque (per richiedere accesso fatemi sapere grazie).
 
 ## Come funziona sta cosa?
