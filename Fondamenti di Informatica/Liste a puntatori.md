@@ -83,3 +83,16 @@ whille(p!=NULL){
 ```
 Uso una copia del puntatore perché se modifico `lista` non posso più trovare la lista, accedere ai suoi nodi o deallocarne lo spazio.
 
+### Aggiunta valore tra due nodi
+Algoritmo in italiano
+Dopo aver allocato la memoria per il nodo, collego il campo prossimo del *nuovo nodo* al **prossimo elemento**. Collego il campo prossimo del **nodo precedente** al *nodo creato*.
+
+L'ordine di questa operazione è **fondamentale** perché altrimenti perdo l'indirizzo del *nodo successivo*.
+
+> [!esempio] Funzioni gestione lista
+> Creare un programma che preveda l'implementazione di una *linked list* e le relative funzioni per:
+> - Aggiungere un valore in coda alla lista
+> - Visualizzare la lista
+> - Cancellare un valore della lista
+> - Deallocare la lista
+> ![[linked_list.c]]
