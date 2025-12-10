@@ -13,6 +13,7 @@ void aggiungi_in_coda(lista *l, int valore);
 lista nuovalista();
 void visualizza_lista(lista *l);
 void elimina_elemento(lista *l, int posizione);
+void dealloca_lista(lista *l);
 
 int main(){
 
@@ -55,13 +56,30 @@ void visualizza_lista(lista *l){
     return;
 }
 
-void elimina_elemento(lista *l, int posizione){
+// trova elemento, collega elemento precedente al prossimo, libera memoria
+// input: puntatore a nodo, valore da eliminare
+// output: modifica lista
+void elimina_elemento(lista *l, int valore){
     lista p=*l;
     lista p_prev=p; // puntatore all'elemento precedente
-    for (int i=0; i<posizione; i++) { // scorro la lista finchè trovo nodo che mi interessa
-        p_prev=p;
-        p=p->prossimo;
+    while (p->valore != valore&&p->prossimo!=NULL) {
+        p_prev = p;
+        p = p->prossimo;
     }
+    if (p->valore == valore) {
+        p_prev->prossimo = p->prossimo;
+        free(p);
+    }
+    return;
+}
 
+void dealloca_lista(lista *l){
+    lista p = *l;
+    while (p!=NULL){
+        lista q = p; // mi serve una copia per deallocare, altrimenti perdo p
+        p=p->prossimo;
+        free(q);
+    }
+    l = NULL; // elimino la lista
     return;
 }
