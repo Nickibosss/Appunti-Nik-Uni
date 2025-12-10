@@ -71,7 +71,7 @@ L'insertion sort invece descrive un approccio differente che è analogo all'ordi
 Lavora su *due  vettori*. 
 Parte dal vettore di elementi da ordinare e itera in questo modo:
 - Scorre il vettore da ordinare, seleziona un valore
-- Decide dove inserirlo nel secondo vettore ( o opportunamente *sottovettore* )
+- Decide dove inserirlo nel secondo vettore ( o opportunamente *sottovettore*)
 
 ```
 // ^ valore considerato

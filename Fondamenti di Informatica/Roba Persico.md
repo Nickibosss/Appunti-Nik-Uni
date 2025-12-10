@@ -1,7 +1,7 @@
 #teoria #università
 Cosa faremo in questo corso:
 Prima cosa vedremo come immagazinare informazione.
-[[Codifica dei numeri]][[Codifica dell'alfabeto]][[Codifica di oggetti digitali]]
+[[Codifica dei numeri]] [[Codifica dell'alfabeto]] [[Codifica di oggetti digitali]]
 Vedremo anche parti di infrastrutture.
 Troveremo strategie di [[Programmazione]] prima in linguaggio naturale e poi fatte in linguaggio specifico [[C]].
 Alla fine ste strategie le possiamo usare in qualsiasi cosa.
