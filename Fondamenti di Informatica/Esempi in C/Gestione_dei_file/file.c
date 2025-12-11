@@ -14,6 +14,9 @@ int main(){
         v[i] = tmp;
     }
 
+    // chiudo file
+    fclose(in_file);
+
     // stampa a video per controllo
     for (int i=0; i<valori_da_leggere; i++){
         printf("%d ", v[i]);
@@ -23,6 +26,9 @@ int main(){
     for (int i=0; i<valori_da_leggere; i++){
         fprintf(out_file, "%d ", v[i]);
     }
+
+    // chiudo file
+    fclose(in_file);
 
     return 0;
 }

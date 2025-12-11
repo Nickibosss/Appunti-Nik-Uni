@@ -32,6 +32,11 @@ Il metodo di accesso è una stringa che specifica come vogliamo accedere al file
 Non penso sia necessario spiegare un percorso di file.
 Ma in ogni caso quando lo specifichiamo è sempre meglio utilizzare un percorso *relativo* (quindi usando la directory del programma come partenza `./`) al posto di un percorso *assoluto* perché altrimenti rende il programma **non portabile** a meno che il percorso assoluto sia **esattamente uguale** in due macchine diverse.
 
+Ricordiamoci di chiudere un file quando abbiamo finito di usarlo con `fclose`:
+```C
+fclose(in_file);
+```
+
 ### Lettura da file
 Sul puntatore a file possiamo quindi fare *letture* o *scritture*.
 Mentre per stdinput usavamo `scanf`, per letture e scritture su file usiamo `fscanf`.
@@ -76,6 +81,11 @@ char ch = fgetc(in_file);
 fread(puntatore_a_buffer, dim, n, input_stream);
 ```
 Come `fscanf`, restituisce il *numero di letture avvenute con successo*, ma non restituisce `EOF` alla fine del file.
+Un utilizzo ipotetico sarebbe:
+```C
+int buffer[5];
+fread(buffer, sizeof(int), 5, in_file);
+```
 ### Scrittura su file
 Come `printf` abbiamo `fprintf`:
 ```C
