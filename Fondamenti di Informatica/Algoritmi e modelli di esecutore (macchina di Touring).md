@@ -180,4 +180,3 @@ Fase di Execute
 A questo punto ricomincio dalla fase di Fetch.
 
 Tutte queste operazioni viene sincronizzata da un segnale di *clock*, che periodicamente passa da uno stato "alto" a uno "basso". Più la frequenza è alta, più velocemente lavora la CPU. Il clock non ci dice precisamente quante istruzioni vengono eseguite al secondo, ma questo dipende anche dalla velocità dell'architettura.
-
