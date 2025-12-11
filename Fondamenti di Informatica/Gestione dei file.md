@@ -71,7 +71,11 @@ char ch = fgetc(in_file);
 ```
 
 #### Lettura consecutiva
-`fread` legge `maxdim` volte 
+`fread` legge `dim` byte, `n` volte in un `buffer` (magari un vettore di interi)
+```C
+fread(puntatore_a_buffer, dim, n, input_stream);
+```
+Come `fscanf`, restituisce il *numero di letture avvenute con successo*, ma non restituisce `EOF` alla fine del file.
 ### Scrittura su file
 Come `printf` abbiamo `fprintf`:
 ```C
@@ -81,3 +85,4 @@ fprintf (output_stream, formato, ...);
 ATTENZIONE! Per poter scrivere su file dobbiamo usare `"w"` o `"a"`quando usiamo `fopen`.
 
 In pratica il comportamento è *uguale* a `printf` e `scanf`.
+
