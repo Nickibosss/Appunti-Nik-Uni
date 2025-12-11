@@ -7,7 +7,7 @@
 
 </div>
 
-## 📂 Struttura e aggiornamenti
+## 🗂️ Struttura e aggiornamenti
 Ho organizzato gli appunti in cartelle. All'interno di ogni cartella ho tutti i file in formato markdown (`.md`) degli appunti che scrivo. 📝
 
 Gli appunti sono **aggiornati regolarmente**, ogni volta che ho lezione. 📅✅
@@ -26,7 +26,7 @@ Fondamentalmente ci sono due modi: scaricare i file manualmente o fare uso di **
 > [!NOTE]
 >  _Queste istruzioni assumono che hai già installato Obsidian e selezionato una cartella come vault._ 
 
-#### Download e aggiornamento con Git
+#### 😮‍💨 Download e aggiornamento con Git
 Con git puoi scaricare tutti i file e aggiornarli con un solo comandino, quindi rende tutto molto piú facile e meno fastidioso.
 
 ##### Step 1 - Installa git
@@ -45,20 +45,20 @@ Apri powershell o il tuo terminal e esegui questi comandi:
 cd <directory cartella>
 git clone https://github.com/Nickibosss/Appunti-Nik-Uni.git
 ```
-Al posto di `<directory cartella>` inserisci il percorso di file della cartella in cui vuoi scaricare i file, preferibilmente una cartella nel [vault](https://docs.obsidian.md/Plugins/Vault) di Obsidian (es. `C:\User\Nicola\Documents\Vault` su windows).
+Al posto di `<directory cartella>` inserisci il percorso di file della cartella in cui vuoi scaricare i file, preferibilmente una cartella nel [vault](https://docs.obsidian.md/Plugins/Vault) di Obsidian (es. `C:\User\Nicola\Documents\Vault` su windows). 
 
 ##### Step 3 - Obsidian
-In Obsidian, una volta aperto il programma dovresti vedere tutti i file scaricati, divisi in cartelle 
-##### Come aggiornare con git
+In Obsidian, una volta aperto il programma dovresti vedere tutti i file scaricati, divisi in cartelle. 🙂‍↕️↕️
+##### Come aggiornare con git 🧑‍🌾
 Quando carico nuovi appunti ti basta aprire il terminale nella cartella degli appunti dove hai incollato i comandi sopra (`cd <directory cartella>`) e inserire questo comando:
 ```bash
 git pull
 ```
 
-### Download manuale (no git)
+### Download manuale (no git) 🥸
 Se non vuoi usare git basta:
 - Cliccare sul pulsante verde `<> Code` in alto a destra.
-- Cliccare "scarica zip".
+- Cliccare "scarica zip" 🗃.
 - Estrarre nella cartella del vault di Obsidian.
 
 Attenzione che in questo caso per avere gli appunti aggiornati c'é bisogno di riscaricare manualmente!
