@@ -3,29 +3,27 @@
 
 <h5>*Appunti di ingegneria informatica alla Federico II.*</h5>
 
-![Obsidian](https://img.shields.io/badge/Obsidian-%23483699.svg?style=for-the-badge&logo=obsidian&logoColor=white)![Markdown](https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white) ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
+![Obsidian](https://img.shields.io/badge/Obsidian-%23483699.svg?style=for-the-badge&logo=obsidian&logoColor=white)  ![Markdown](https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white)  ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
 
 </div>
 
 ## 📂 Struttura e aggiornamenti
 Ho organizzato gli appunti in cartelle. All'interno di ogni cartella ho tutti i file in formato markdown (`.md`) degli appunti che scrivo. 📝
 
-> [!SUCCESS] Stato Appunti 
->  Gli appunti sono **aggiornati regolarmente**, ogni volta che ho lezione. 📅✅
+Gli appunti sono **aggiornati regolarmente**, ogni volta che ho lezione. 📅✅
 
 ## 💎 Come fare a vedere bene gli appunti
 Gli appunti sono stati scritti usando [Obsidian](https://www.obsidian.md).
 
-> [!TIP] Consiglio 
->  Anche se si possono visualizzare direttamente da Github, **vi consiglio lo stesso di usare Obsidian**. > In questo modo è possibile: 
-> * Visualizzare i vari link tra le note. 
-> * Avere una formattazione più leggibile (e bella!). 
-> * Vedere tutti i *blocchi* in maniera migliore.
+Anche se si possono visualizzare direttamente da Github, **vi consiglio lo stesso di usare Obsidian**. In questo modo è possibile: 
+ * Visualizzare i vari link tra le note. 
+ * Avere una formattazione più leggibile (e bella!). 
+ * Vedere tutti i *blocchi* in maniera migliore.
 
 ### 🚀 Installazione e aggiornamento
 Fondamentalmente ci sono due modi: scaricare i file manualmente o fare uso di **git** (che consiglio per facilitare gli aggiornamenti).
 
-> [!NOTE] Prerequisiti 
+> [!NOTE]
 >  _Queste istruzioni assumono che hai già installato Obsidian e selezionato una cartella come vault._ 
 
 #### Download e aggiornamento con Git
