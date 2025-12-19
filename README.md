@@ -6,7 +6,6 @@
 [![Obsidian](https://img.shields.io/badge/Obsidian-%23483699.svg?style=for-the-badge&logo=obsidian&logoColor=white)](https://obsidian.md)  [![Markdown](https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white)](https://www.markdownguide.org)  [![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)](https://git-scm.com)
 
 </div>
-obs
 ## 🗂️ Struttura e aggiornamenti
 Ho organizzato gli appunti in cartelle. All'interno di ogni cartella ho tutti i file in formato markdown (`.md`) degli appunti che scrivo. 📝
 
@@ -62,3 +61,6 @@ Se non vuoi usare git basta:
 - Estrarre nella cartella del vault di Obsidian.
 
 Attenzione che in questo caso per avere gli appunti aggiornati c'é bisogno di riscaricare manualmente!
+
+## Contatti 📱☎
+Per qualsiasi cosa (cose mancanti dagli appunti, riferimenti non chiari) *puoi contattarmi tranquillamente* sul mio numero di telefono o alla mail nicolapascale80@gmail.com.
