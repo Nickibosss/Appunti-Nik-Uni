@@ -42,7 +42,7 @@ Le parentesi angolari  (<>)  servono a definire un file nel percorso standard, i
 Quindi mi servono per non specificare il filepath.
 Se questa libreria non si trova in questo percorso standard.
 
-Nella riga `printf("Hello world\n");` ho la *funzione* `printf` e l'*argomento* "Hello world\n" che chiamiamo stringa.
+Nella riga `printf("Hello world\n");` ho la *funzione* `printf` e l'*argomento* `"Hello world\n"` che chiamiamo stringa.
 Il punto e virgola alla fine della stringa indica che l'istruzione è terminata, se lo dimenticassi, il [[Traduzione del codice C|compilatore]]  non può completare la compilazione
 
 `int` prima di `main` significa che dalla funzione main il sistema si aspetta un valore intero.
@@ -57,12 +57,12 @@ Esistono due tipi di errori:
 - errori in runtime
 
 ## 
-Ovviamente per andare a programmare dobbiamo sapere che tipo di *problema* dobbiamo risolvere, le strategice su *come* risolverlo e poi successivamente andare a controllare.
+Ovviamente per andare a programmare dobbiamo sapere che tipo di *problema* dobbiamo risolvere, le strategie su *come* risolverlo e poi successivamente andare a controllare.
 
 Gli elementi principali che andiamo a toccare sono:
 ### [[Tipi di variabili|Dati]]
 - tipi *semplici*
-- tipi *strutturati*
+- tipi *[[Tipi di dato strutturati|strutturati]]*
 
 ### [[Strutture di controllo]]
 - *sequenza*
