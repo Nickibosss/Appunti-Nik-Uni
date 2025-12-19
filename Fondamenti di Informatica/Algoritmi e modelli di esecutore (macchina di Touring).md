@@ -56,7 +56,7 @@ Una macchina di Turing ha bisogno di un *nastro bidirezionale* idealmente infini
 - **Stato in cui spostare la macchina.
 - **Se e in che verso devo spostare la testina.**
 
-Possiamo formalizzare quindi la macchina di turning come una *specializzazione* della quintupla dell'autome [vedi pdf]
+Possiamo formalizzare quindi la macchina di turning come una *specializzazione* della quintupla dell'automa.
 
 La macchina quindi è capace di:
 - Leggere il nastro.
@@ -152,7 +152,6 @@ Nel modello di Von Neumann all'interno della memoria sono immagazinati sia *dati
 Non esiste una cella di memoria "vuota", ma contiene sempre sequenze di `0` e `1`, che nel caso non vengano scritte contengono dati "casuali".
 
 ### CPU
-[vedi cpu da pdf]
 
 >[!tip] **Quando parliamo di CPU:**
 >*MAR* - buffer indirizzo

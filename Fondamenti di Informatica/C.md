@@ -13,5 +13,3 @@ Il vantaggio di C è innanzitutto la portabilità, ma anche la maggiore potenza 
 
 ## Cose importanti
 C per codificare un numero intero con segno utilizza la rappresentazione in *complemento a 2*
-
-## 

@@ -1,4 +1,3 @@
-
 #teoria #università #codifica_e_rappresentazione 
 # Rappresentazione dei numeri reali
 A differenza dei numeri interi, i numeri reali sono *infinitamente densi*; quindi anche tra due numeri infinitamente piccoli esistono numeri infiniti.
@@ -35,9 +34,9 @@ Dedica una parte prestabilita delle cifre alla parte intera e una parte prestabi
 Per discutere della rappresentazione della virgola mobile dobbiamo pensare alla [[notazione scientifica]].
 
 Vantaggi rispetto alla virgola fissa:
-	- Riesco a massimizzare le **cifre significative**.
-	- Posso rappresentare numeri *molto grandi* ***o*** *molto piccoli* con uno stesso numero di cifre, sia positivi che negativi.
-		- Effettivamente se devo rappresentare numeri molto grandi sono in grado di trascurare la parte non intera.
+-  Riesco a massimizzare le **cifre significative**.
+- Posso rappresentare numeri *molto grandi* ***o*** *molto piccoli* con uno stesso numero di cifre, sia positivi che negativi.
+	- Effettivamente se devo rappresentare numeri molto grandi sono in grado di trascurare la parte non intera.
 
 Mentre per la notazione a virgola fissa gli intervalli tra le rappresentazioni sono fissi, in virgola mobile a seconda dell'**esponente** *(cioè il peso della cifra significativa)*
 Inoltre, la rappresentazione in virgola mobile, *fissata la base*, consente di esprimere lo stesso valore con infinite coppie **mantissa - esponente**.
@@ -46,13 +45,13 @@ Quindi per semplificarmi la vita devo far *scorrere* la virgola decimale fino ad
 Abbiamo bisogno di metterci d'accordo su come possiamo scegliere, in generale cerchiamo sempre di *massimizzare la precisione*.
 
 Ci serviamo della forma normalizzata della mantissa.
-	- La mantissa è normalizzata quando:
-		- **La sua prima cifra è diversa da zero.
-		- La sua parte intera sia un numero minore della base.**
-	 - In base due:
-		 - **La sua prima cifra deve essere 0
-		 - La sua parte intera deve essere minore di 2**
-		 - (Dato che lavoriamo in binario, date le proprietà della notazione scientifica, posso assumere che il primo bit sia **sempre** 1, quindi posso non metterlo in memoria.)
+- La mantissa è normalizzata quando:
+	- **La sua prima cifra è diversa da zero.
+	- **La sua parte intera sia un numero minore della base.**
+- In base due:
+	- **La sua prima cifra deve essere 0**
+	- **La sua parte intera deve essere minore di 2**
+	- (Dato che lavoriamo in binario, date le proprietà della notazione scientifica, posso assumere che il primo bit sia **sempre** 1, quindi posso non metterlo in memoria.)
 
 Esempio 
 ```
@@ -70,25 +69,25 @@ Numero non normalizzato   Forma normalizzata
 I limiti dell'intervallo di rappresentazione sono:
 **overflow** se |x| > 9,9999 * 10^99
 **underflow** se |x| < 1,0000 * 10^-99
-	- Con un underflow confondo un valore più piccolo dell'intervallo minimo con 0.
-		- Cazzo. Ci da tanti tanti problemi soprattutto con divisione, quindi i nostri algoritmi devono tenere conto di questo.
+- Con un underflow confondo un valore più piccolo dell'intervallo minimo con 0.
+- Cazzo. Ci da tanti tanti problemi soprattutto con divisione, quindi i nostri algoritmi devono tenere conto di questo.
 
 Quindi con un floating point aumentiamo di **ordini di grandezza** l'intervallo di rappresentazione.
 Allo stesso tempo la distribuzione degli intervalli non è *fissa*.
-	- Quindi vicino allo 0 ho la densità massima, mentre vicino ai massimi di rappresentazione ho la densità minima.
-	- In genere in questo modo posso avere precisione massima in qualsiasi caso, dato che se tratto valori grandi un errore è più trascurabile.
+-  Quindi vicino allo 0 ho la densità massima, mentre vicino ai massimi di rappresentazione ho la densità minima.
+- In genere in questo modo posso avere precisione massima in qualsiasi caso, dato che se tratto valori grandi un errore è più trascurabile.
 
 Per formalizzare:
-	- Gli intervalli non hanno tutti la stessa **ampiezza** a causa della finitezza del numero di cifre della mantissa.
-		- Vicino alla *condizione di overflow* gli intervalli si fanno sempre più grandi.
-		- Vicino alla *condizione di underflow* gli intervalli si fanno sempre più piccoli.
-	- Quindi gli intervalli non hanno una **distribuzione fissa**.
+-  Gli intervalli non hanno tutti la stessa **ampiezza** a causa della finitezza del numero di cifre della mantissa.
+	- Vicino alla *condizione di overflow* gli intervalli si fanno sempre più grandi.
+	- Vicino alla *condizione di underflow* gli intervalli si fanno sempre più piccoli.
+- Quindi gli intervalli non hanno una **distribuzione fissa**.
 
 Cosa succede se dobbiamo fare operazioni con queste rappresentazioni?
-	- Dato che ogni numero è rappresentato da mantissa ed esponente, per operare due numeri devo traslarli fino a che mi trovo due numero con lo *stesso esponente*.
-	- In questo caso l'allineamento degli esponenti può dare **effetti indesiderati**, cioè faccio scomparire alcune cifre rappresentative del numero *minore*, quindi vado a *perdere* le cifre meno significative.
-		- In sostanza anche se la precisione dei numeri implica che entrambi dobvrebbero avere *5 cifre significative*, nel pratico il numero minore affronta un errore di approssimazione.
-		- NB: questo significa che particolarmente divisione con numeri molto piccoli porta facilmente a *overflow*.
+- Dato che ogni numero è rappresentato da mantissa ed esponente, per operare due numeri devo traslarli fino a che mi trovo due numero con lo *stesso esponente*.
+- In questo caso l'allineamento degli esponenti può dare **effetti indesiderati**, cioè faccio scomparire alcune cifre rappresentative del numero *minore*, quindi vado a *perdere* le cifre meno significative.
+	- In sostanza anche se la precisione dei numeri implica che entrambi dobvrebbero avere *5 cifre significative*, nel pratico il numero minore affronta un errore di approssimazione.
+	- NB: questo significa che particolarmente divisione con numeri molto piccoli porta facilmente a *overflow*.
 
 ### Standardizzazione
 Noi utilizzeremo lo standard **IEEE 754**
@@ -105,13 +104,13 @@ pos 31   |  pos 30 - pos 23    |  pos 22 - pos 0
 ```
 In caso di float in precisione singola codifichiamo esponente in *eccesso 127*.
 Ci riserviamo le due rappresentazioni degli estremi per codificare delle situazioni particolari:
-	- Se esponente e mantissa sono *tutti 0*, codifichiamo 0.
-	- se esponente sono *tutti 0*, e mantissa sono **diversi** da *tutti 0*, rappresentiamo i numeri **denormalizzati**:
-		- Quindi consideriamo il valore dell'esponente come il più piccolo possibile.
-		- La mantissa non sottoinitende 1, ma 0.
-	- Per i numeri **normalizzati** dato che la prima cifra della mantissa è *sempre 1*, non la codifichiamo e la *tralasciamo*. (quindi la mantissa codifica sempre e solo la parte *non intera*)
-	- Se esponente sono *tutti 1* e mantissa *tutti 0*, rappresentiamo infinito (con segno).
-	- Se esponente sono *tutti 1* e mantissa **diversa** da *tutti 0*, rappresentiamo Not a Number, cioè un valore indefinito (esempio di un risultato che da **NaN** è una divisione per 0).
+- Se esponente e mantissa sono *tutti 0*, codifichiamo 0.
+- se esponente sono *tutti 0*, e mantissa sono **diversi** da *tutti 0*, rappresentiamo i numeri **denormalizzati**:
+	- Quindi consideriamo il valore dell'esponente come il più piccolo possibile.
+	- La mantissa non sottoinitende 1, ma 0.
+- Per i numeri **normalizzati** dato che la prima cifra della mantissa è *sempre 1*, non la codifichiamo e la *tralasciamo*. (quindi la mantissa codifica sempre e solo la parte *non intera*)
+- Se esponente sono *tutti 1* e mantissa *tutti 0*, rappresentiamo infinito (con segno).
+- Se esponente sono *tutti 1* e mantissa **diversa** da *tutti 0*, rappresentiamo Not a Number, cioè un valore indefinito (esempio di un risultato che da **NaN** è una divisione per 0).
 
 | Codifica                  | Esponente          | Mantissa  |
 | ------------------------- | ------------------ | --------- |

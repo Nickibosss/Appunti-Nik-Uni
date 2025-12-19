@@ -13,14 +13,13 @@ Ogni modulo è quindi composto da due parti:
 - **Interfaccia**
 	- Quello che effettivamente esce all'esterno
 - **Corpo**
-	- 
+	- Il codice che esegue il modulo
 
 I tipi di astrazzione di cui mi servo sono:
 - Astrazione sul controllo:
 	- Quindi astraggo una *funzionalità* dai dettagli della sua implementazione.
 	- Scompongo la mia soluzione in *sottoprogrammi*.
-- Astrazione sui dati:
-	- (vedi pdf non ho capito benissimo)
+- Astrazione sui dati
 	- I linguaggi di programmazione *ad oggetti* lavorano sull'astrazione sui dati
 
 ### Sottoprogrammi

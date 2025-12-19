@@ -1,9 +1,9 @@
 #teoria #programmazione #università
 Tutti i linguaggi di programmazione hanno sintassi precisa, le frasi sono di quattro tipologie:
-	- Dichiarazioni, cioè sono le istruzioni al traduttore, *non vengono tradotte in codice macchina*.
-	- Istruzioni, che tradotte in codice macchina indicano al processore le operazioni da svolgere.
-	- Strutture di controllo, che definiscono l'ordine di esecuzione delle istruzioni (if, when, while).
-	- Frasi di commento, stringhe ignorate dal compilatore che servono al programmatore per rendere il codice più chiaro
+- Dichiarazioni, cioè sono le istruzioni al traduttore, *non vengono tradotte in codice macchina*.
+- Istruzioni, che tradotte in codice macchina indicano al processore le operazioni da svolgere.
+- Strutture di controllo, che definiscono l'ordine di esecuzione delle istruzioni (if, when, while).
+- Frasi di commento, stringhe ignorate dal compilatore che servono al programmatore per rendere il codice più chiaro
 
 ### Identificatori
 Si usano per attribuire nomi a:
