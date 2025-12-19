@@ -162,4 +162,43 @@ Parto dal basso:
 >		merge(v, left, mid, right);
 >	}
 >}
+>
+>// per fare il merge, ho bisogno di due indici che a mano a mano aumentano, dato che devo controllare a mano a mano gli elementi dei due sottoarray
+>void merge (v[], int left, int mid, int right){
+>		int dim1 = mid - left +1;
+>		int dim2 = right - mid;
+>		
+>		int left[dim1], right[dim2];
+>		for (int i=0; i<dim1; i++){
+>			left[i] = v[left+i];
+>		}
+>		for (int i=0; i<dim2; i++){
+>			right[i] = v[mid + i + 1];
+>		}
+>		
+>		int i = 0; // Indice iniziale per left 
+>		int j = 0; // Indice iniziale per right 
+>		int k = left; // Indice iniziale per l'array unito
+>		while (i < n1 && j < n2) {
+>			 if (left[i] <= right[j]) { 
+>				arr[k] = left[i]; 
+>				i++; } 
+>			else { 
+>				arr[k] = right[j];
+>				j++; 
+>			} 
+>			k++; 
+>		}
+>		while (i < n1) { 
+>			arr[k] = left[i]; 
+>			i++; 
+>			k++; 
+>		}
+>		while (j < n2) { 
+>			arr[k] = R[j]; 
+>			j++; 
+>			k++;
+>		} 
+>	}
+>}
 >```
