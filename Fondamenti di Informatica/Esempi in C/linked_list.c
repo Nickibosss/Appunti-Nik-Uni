@@ -38,7 +38,10 @@ void aggiungi_in_coda(lista *l, int valore){
             p=p->prossimo;
         }
         // quanso sono fuori dal while sono sicuro che ho raggiunto l'ultimo elemento
-        p = malloc(sizeof(struct elemento));
+        p->prossimo = malloc(sizeof(struct elemento));
+
+        // ora sposto p all'ultimo elemento
+        p=p->prossimo;
         p->valore = valore;
         p->prossimo = NULL;
     }
