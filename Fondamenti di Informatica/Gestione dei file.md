@@ -89,7 +89,7 @@ fread(buffer, sizeof(int), 5, in_file);
 ### Scrittura su file
 Come `printf` abbiamo `fprintf`:
 ```C
-fprintf (output_stream, formato, ...);
+fprintf (output_stream, formato);
 		// puntatore a file
 ```
 ATTENZIONE! Per poter scrivere su file dobbiamo usare `"w"` o `"a"`quando usiamo `fopen`.
