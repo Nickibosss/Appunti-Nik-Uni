@@ -15,7 +15,7 @@ Gli appunti sono **aggiornati regolarmente**, ogni volta che ho lezione. 📅✅
 ## 💎 Come fare a vedere bene gli appunti
 Gli appunti sono stati scritti usando [Obsidian](https://www.obsidian.md).
 
-Anche se si possono visualizzare direttamente da Github, **vi consiglio lo stesso di usare Obsidian**. In questo modo è possibile: 
+Anche se si possono visualizzare direttamente da Gitlab, **vi consiglio lo stesso di usare Obsidian**. In questo modo è possibile: 
  * Visualizzare i vari link tra le note. 
  * Avere una formattazione più leggibile (e bella!). 
  * Vedere tutti i *blocchi* in maniera migliore.
@@ -43,7 +43,7 @@ winget install --id Git.Git -e --source winget
 Apri powershell o il tuo terminal e esegui questi comandi:
 ```bash
 cd <directory cartella>
-git clone https://github.com/Nickibosss/Appunti-Nik-Uni.git
+git clone https://gitlab.com/nickibosss-group/Appunti-Nik-Uni.git
 ```
 Al posto di `<directory cartella>` inserisci il percorso di file della cartella in cui vuoi scaricare i file, preferibilmente una cartella nel [vault](https://docs.obsidian.md/Plugins/Vault) di Obsidian (es. `C:\User\Nicola\Documents\Vault` su windows). 
 
@@ -57,7 +57,7 @@ git pull
 
 ### Download manuale (no git) 🥸
 Se non vuoi usare git basta:
-- Cliccare sul pulsante verde `<> Code` in alto a destra.
+- Cliccare sul pulsante blu `Code` in alto a destra.
 - Cliccare "scarica zip" 🗃.
 - Estrarre nella cartella del vault di Obsidian.
 
