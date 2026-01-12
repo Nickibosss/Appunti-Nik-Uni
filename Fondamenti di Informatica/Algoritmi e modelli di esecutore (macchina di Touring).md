@@ -1,7 +1,8 @@
 #università #architettura #teoria 
-Nell'informatica noi studiamo i *processi* che servono a elaborare le informazione e trovare una soluzione a un probelema.
-iniziamo sempre *analizzando* il problema, poi *progettiamo una soluzione*.
-Ma il nostro lavoro non finisce quì perché dobbiamo pensare poi alla **correttezza** e **efficienza** della soluzione. Quindi dalla nostra analisi troviamo una soluzione *efficace* e poi la possiamo *ottimizzare*, cioè troviamo una soluzione che impiega meno tempo e risorse possibili.
+Nell'informatica noi studiamo i *processi* che servono a elaborare le informazione e trovare una soluzione a un problema.
+Iniziamo sempre *analizzando* il problema, poi *progettiamo una soluzione*.
+
+Ma il nostro lavoro non finisce qui perché dobbiamo pensare poi alla **correttezza** e **efficienza** della soluzione. Quindi dalla nostra analisi troviamo una soluzione *efficace* e poi la possiamo *ottimizzare*, cioè troviamo una soluzione che impiega meno tempo e risorse possibili.
 
 Ci sono due elementi quindi nel nostro lavoro:
 - Algoritmo
@@ -11,7 +12,7 @@ Ci sono due elementi quindi nel nostro lavoro:
 	- Deve essere in grado di comprendere l'algoritmo.
 
 Quindi quale è il problema?
-Che caratteristiche devono avere i computer per ricevere un algoritmo.
+Che caratteristiche devono avere i computer per ricevere un algoritmo?
 
 Qui dobbiamo parlare di **modello**.
 Un modello è una *astrazione* di un fenomeno che ci permette di **descrivere** la realtà.
@@ -35,8 +36,8 @@ Quindi possiamo andare a formalizzare un automa come una quintupla: $(Q,I,U,t,w)
 - $w$ è la funzione che ci permette, rispetto allo stato corrente e quelli degli ingressi, di determinare la soluzione.
 
 Per rappresentare un automa possiamo usare i **grafi**.
-###
-La macchina di turing ci permette di descrivere una *macchina* che permette di descrivere come si risolve un **problema generico**, cioè una macchina che evolva per risolvere algoritmi.
+### La macchina di Turing
+La macchina di Turing ci permette di descrivere una *macchina* che permette di descrivere come si risolve un **problema generico**, cioè una macchina che evolva per risolvere algoritmi.
 
 >[!example]  Riconoscitore di sequenza `11`
 >`0100101101001`
@@ -60,7 +61,7 @@ Possiamo formalizzare quindi la macchina di turning come una *specializzazione* 
 
 La macchina quindi è capace di:
 - Leggere il nastro.
-- Scrivere il nastro il simbolo specificato dalla funzione di macchina.
+- Scrivere sul nastro il simbolo specificato dalla *funzione di macchina*.
 - Transitare in un nuovo stato interno specificato dalla funzione di stato.
 - Spostarsi sul nastro di una posizione nella direzione indicata dalla funzione di direzione.
 La macchina si ferma quando raggiunge lo stato di terminazione.
@@ -79,9 +80,9 @@ I computer di oggi, anche se si sono *evoluti* in velocità, sono basati sugli *
 Un problema però anche se risolvibile, potrebbe essere **non trattabile**.
 Quando parliamo di **trattabilità** diciamo che un calcolatore arrivare a una soluzione in base alle possibilità di esecuzione dell'esecutore.
 In questo caso parliamo di due elementi:
-- Spazio
+- Complessità *spaziale*.
 	- Sostanzialmente la memoria a disposizione.
-- Tempo
+- Complessità *temporale*.
 	- Il tempo effettivo necessario a produrre la soluzione.
 In genere non siamo interessati alle **misure esatte** di questi due elementi, ma semplicemente quanto questa complessità *cresce* in confronto alla *crescita degli ingressi*.
 
