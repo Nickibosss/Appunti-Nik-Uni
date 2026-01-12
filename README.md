@@ -10,7 +10,7 @@
 ## 🗂️ Struttura e aggiornamenti
 Ho organizzato gli appunti in cartelle. All'interno di ogni cartella ho tutti i file in formato markdown (`.md`) degli appunti che scrivo. 📝
 
-Gli appunti sono **aggiornati regolarmente**, ogni volta che ho lezione. 📅✅
+Gli appunti sono **aggiornati regolarmente**, ogni volta che ho lezione o mi accorgo di errori (o chiarimenti necessari). 📅✅
 
 ## 💎 Come fare a vedere bene gli appunti
 Gli appunti sono stati scritti usando [Obsidian](https://www.obsidian.md).
