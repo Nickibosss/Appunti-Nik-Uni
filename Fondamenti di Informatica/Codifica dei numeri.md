@@ -7,8 +7,7 @@ Risolviamo questo problema con un **approssimazione**.
 Magari il mio dato non è rappresentabile ma associo comunque un valore *abbastanza vicino*.
 
 L'errore di approssimazione porta a numerosi problemi successivi.
-	- anche se abbiamo un algoritmo buono, se non tiene conto di errori di approssimazione, questo si *propaga*, ridandomi un risultato scorretto.
-	- a
+- anche se abbiamo un algoritmo buono, se non tiene conto di errori di approssimazione, questo si *propaga*, ridandomi un risultato scorretto.
 
 Risolvo questo errore con un arrotondamento.
 Effettivamente non rimuovo totalmente l'errore ma ne introduco uno accettabile.

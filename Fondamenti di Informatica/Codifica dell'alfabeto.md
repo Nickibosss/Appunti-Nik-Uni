@@ -25,5 +25,3 @@ Sostanzialmente questo gruppo di codifiche per i *7 byte* ASCII rimangono invari
 Lo standard che risolve il multilinguismo è **Unicode**.
 I formati **UTF** usano 8, 16 o 32 bit.
 Le *rappresentazioni unicode* si rappresentano in livelli. Per ogni livello esistono "*blocchi*", i quali codificano diverse categorie di simboli.
-
-

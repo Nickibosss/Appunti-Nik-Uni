@@ -1,5 +1,12 @@
-
 #università #teoria #logica
+Una **proposizione** è una qualsiasi affermazione che può essere *vera* o *falsa*.
+Considerando `0` come falso e `1` come vero possiamo usare la [[Logica Booleana|logica di Boole]] per determinare la verità di un certo *predicato*, che è formato da *proposizioni* e *operatori logici*.
+```
+Esempio di predicato:
+"Il numero di lettere inviate da Giovanni *è maggiore* di 16"
+"Posso accettare una mancia *se* ho lavorato più di un ora *oppure* ha un valore maggiore di 15 euro"
+```
+
 La **verità** di un predicato che contiene **operatori logici** può essere facilmente calcolata a partire dalla *verità dei predicati componenti* e dalle *proprietà degli operatori che li collegano*.
 Conoscere le proprietà della logica delle proposizioni ci permette di risolvere problemi in maniera più *semplice*.
 
@@ -22,6 +29,7 @@ quindi:
 $$
 x \in\ [-5,3] \cup\ [8.15]
 $$
+
 ```c
 Viene scritto come
 a = x >= -5  
@@ -49,4 +57,3 @@ Con i tre operatori base possiamo andare a costruire anche altri operatori.
 >**A** = n bollettini < 5
 >**B** = ci sono utenti in coda
 >Quindi: `A OR (NOT A AND NOT B) = A OR NOT B`
-
