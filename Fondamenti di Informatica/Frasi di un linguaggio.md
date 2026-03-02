@@ -34,25 +34,28 @@ int età = 25;
 Il compilatore mi darà questo errore una sola volta***
 
 In questo caso ho riservato lo spazio in memoria per una variabile di tipo intero, e allo stesso tempo gli ho assegnato un valore.
+
 Anche la sintassi
 ```c
 int età;
 ```
 è corretta, ma non ho collegato un valore a questa variabile.
+
 Se non ho inizializzato una certa area di memoria non posso essere certo di cosa ci sia, potrebbe esserci qualsiasi valore possibile.
 Quindi devo stare attento a *non leggere una variabile prima che venga scritta*.
+
 [[C]] mi permette anche di dichiarare più variabili contemporaneamente, quindi:
 ```c
 int età, età2, età3;
 ```
-Alloca memoria per tre variabili *di tipo int*.
+Alloca memoria per tre variabili *di tipo `int`*.
 
 La prima volta che assegnano un valore ad una variabile diciamo che la *inizializziamo*.
 Se voglio vedere che valore do a una variabile posso usare `printf` in questo modo:
 ```c
 printf("%d\n", nome_variabile);
 ```
-`%d` si chiama specificatore di variabile, è un segnaposto che viene sostituito da una specifica variabile.
+`%d` si chiama **specificatore di variabile**, è un segnaposto che viene sostituito da una specifica variabile.
 
 Quando facciamo delle assegnazioni posso indicare che *codifica* voglio utilizzare con dei suffissi o prefissi
 - int - Intero con segno - `int a = 32;`
