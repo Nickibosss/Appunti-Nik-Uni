@@ -57,7 +57,7 @@ git pull
 
 ### Download manuale (no git) 🥸
 Se non vuoi usare git basta:
-- Trova la sezione `HTTPS | SSH` arancione e grigia.
+- Trova la sezione `HTTPS | SSH` arancione e grigia (sopra il display delle cartelle).
 - Cliccare i tre puntini a destra.
 - Cliccare "Download zip" 🗃.
 - Estrarre nella cartella del vault di Obsidian.
