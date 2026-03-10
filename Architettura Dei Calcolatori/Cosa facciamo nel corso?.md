@@ -17,5 +17,5 @@ Dobbiamo conoscere e *saper utilizzare* i componenti di questi sistemi.
 Inoltre dobbiamo saper usare gli strumenti di base.
 
 Questa è la prima parte, quella delle **parti fondamentali**.
-Quindi nella seconda parte, una volta capite, possiamo applicarle nello studio della *architettura*, fino ad arrivare nel creare programmi nel linguaggio assembly di un **Motorola 8-qualcosa**.
+Quindi nella seconda parte, una volta capite, possiamo applicarle nello studio della *architettura*, fino ad arrivare nel creare programmi nel linguaggio assembly di un **Motorola 68000**.
 
