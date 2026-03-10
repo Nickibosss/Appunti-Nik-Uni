@@ -21,4 +21,3 @@ cose varie
 - A questo punto nasce la computazione **mobile**, nella forma di smartphone e tablet.
 - Oggi uno dei [[Sistemi di elaborazione]] più complicati, sono le **automobili**, che effettivamente sono formati anche da *più di 80 processori*. 
 	- I sistemi di calcolo diventano sempre più complicati, infatti nasce il fenomeno di *car hacking*.
-- 
