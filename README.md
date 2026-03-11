@@ -65,4 +65,4 @@ Se non vuoi usare git basta:
 Attenzione che in questo caso per avere gli appunti aggiornati c'é bisogno di riscaricare manualmente!
 
 ## Contatti 📱☎
-Per qualsiasi cosa (*cose mancanti dagli appunti*, *riferimenti non chiari*) *puoi contattarmi tranquillamente* sul mio numero di telefono o alla mail nicolapascale80@gmail.com.
+Per qualsiasi cosa (*parti che mancano dagli appunti*, *riferimenti non chiari*, etc.) *puoi contattarmi tranquillamente* sul mio numero di telefono, alla mail nicolapascale80@gmail.com o, come opzione consigliata, nella sezione **issues** in alto alla pagina.
