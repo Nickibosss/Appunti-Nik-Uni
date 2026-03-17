@@ -144,3 +144,25 @@ Quindi se presi due punti interni ad una figura, riesco a trovare *almeno una* l
 Quindi in parole povere:
 - Se posso fare **almeno una** spezzata che connette **qualsiasi punto** all'interno della figura *descritta* dall'insieme, l'insieme è *internamente connesso*.
 - Altrimenti, no.
+
+### Campo piano
+Si chiama **campo piano** un insieme di punti del piano che sia *aperto* e *internamente connesso*.
+
+> [!example] ESEMPIO:
+> $1<x^{2}+y^{2}<4$ è un campo piano
+> $$
+> \begin{cases}
+> x^{2}+y^{2} < 1 \\
+> (x-3)^{2} + y^{2} <1
+> \end{cases}
+> $$
+> Non è un campo piano dato che, anche se *è aperto*, NON é internamente connesso.
+
+### Dominio piano
+Chiamo **dominio piano** ogni insieme di $\mathbb{R}^{2}$ che sia **chiuso** e tale che *ogni suo punto* sia punto di accumulazione di punti interni.
+
+### Insieme continuo
+Un **insieme chiuso** si dice *continuo* se non può mai risultare *unione di due insiemi chiusi*, non vuoti e disgiunti.
+
+#### Proposizione
+Ogni insieme di $E$ chiuso $\dots$ mi sono perso
