@@ -1,0 +1,1 @@
+Semplicemente l'equazione che descrive la variazione della posizione nei confronti di $t$.

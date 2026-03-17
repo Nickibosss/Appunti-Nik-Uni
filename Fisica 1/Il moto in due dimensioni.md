@@ -16,6 +16,7 @@ A che ci serve?
 Per trovare il vettore **velocità** in una traiettoria **curvilinea**.
 P.S. una traiettoria *curvilinea* può essere approssimata in una  traiettoria **circolare** in ogni punto.
 
+### Direzione dei vettori
 Una volta trovato il vettore velocità, possiamo definire il vettore accelerazione:
 La prima cosa che ci dobbiamo chiedere è **quale sia la direzione**.
 Sappiamo che $\bar{v}$ è parallelo a $\Delta \bar{r}$, e allo stesso modo **$\bar{a}$ è parallelo a $\Delta \bar{v}$**.
