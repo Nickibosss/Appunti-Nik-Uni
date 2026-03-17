@@ -26,7 +26,7 @@ Qui sotto provo a trascrivere:
 $$
 \begin{cases}
 R = v_{0} \cos \theta t \\
-0 = v_{0} \sin \theta t - \frac{1}{2}gt^{2}
+\theta = v_{0} \sin \theta t - \frac{1}{2}gt^{2}
 \end{cases}
 $$
 Ricordando che:
