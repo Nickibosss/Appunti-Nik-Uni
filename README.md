@@ -15,11 +15,12 @@ Gli appunti sono **aggiornati regolarmente**, ogni volta che ho lezione o mi acc
 ## 💎 Come fare a vedere bene gli appunti
 Gli appunti sono stati scritti usando [Obsidian](https://www.obsidian.md).
 
-Anche se si possono visualizzare direttamente da Gitlab, **vi consiglio lo stesso di usare Obsidian**. In questo modo è possibile: 
+Anche se si possono visualizzare direttamente sulla piattaforma, **vi consiglio lo stesso di usare Obsidian**. In questo modo è possibile: 
  * Visualizzare i vari link tra le note. 
  * Avere una formattazione più leggibile (e bella!). 
  * Vedere tutti i *blocchi* in maniera migliore.
 
+❗❗⚠️**Questo è ancora più importante per gli appunti di Architettura del calcolatori e Fisica 1**, dato che sono stati scritti in modo da essere divisi in *micro-tematiche*⚠️❗❗
 ### 🚀 Installazione e aggiornamento
 Fondamentalmente ci sono due modi: scaricare i file manualmente o fare uso di **git** (che consiglio per facilitare gli aggiornamenti).
 
