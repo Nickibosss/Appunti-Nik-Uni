@@ -23,17 +23,3 @@ Questo perchè il flip-flop verifica soltanto al **fronte di salita** del segnal
 
 Ovviamente quando *sia* J *che* K sono alti al segnale di abilitazione, devo prima **controllare** il valore memorizzato per poi cambiarlo.
 
-NON PENSARE A STO COSO MI CONFONDO TROPPO
-```
-| Stato | J     | K     | Q     |
-|-------|-------|-------|-------|
-| 0     | 0     | 0     | 0     |
-| 0     | 0     | 1     | 0     |
-| 0     | 1     | 0     | 1     |
-| 0     | 1     | 1     | 1     |
-|-------|-------|-------|-------|
-| 1     | 0     | 0     | 1     |
-| 1     | 0     | 1     | 0     |
-| 1     | 1     | 0     | 1     |
-| 1     | 1     | 1     | 0     |
-```

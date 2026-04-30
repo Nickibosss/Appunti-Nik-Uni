@@ -98,6 +98,40 @@ Esistono diversi **classi di complessità** e le più diffuse sono:
 - Esponenziale
 	- Cioè cresce in funzione di $a^{n}$. 
 
+##### Parte di calcolatori
+Nella sostanza cosa fa il nastro nella macchina di Touring:
+Lo stato della macchina **può essere scritto nel nastro**, che essendo illimitato, non ha *limiti di memoria*.
+
+Il comportamento della macchina di touring è determinato da un *dispositivo di controllo* che è modellabile usando un **automa a stati finiti**.
+Quindi in questo caso *non risolve l'algoritmo*, ma gestisce il **modo di risoluzione**.
+
+Come funziona:
+- Stato iniziale 
+	- Quindi un nastro con valori scritti.
+	- Posizione della testina.
+- Input
+	- Contenuto del nastro.
+	- Il programma si trova la.
+- Ciclo della macchina
+	- Ci sono delle operazioni che si attuano autonomamente:
+		- Lettura del simbolo sotto la testina.
+		- Su base di Input e stato si ottiene valore da scrivere, nuovo stato, movimento a destra o sinistra.
+
+La modellazione matematica è:
+- $M = {Q,\Sigma,\Gamma,\sigma, q_{0}, q_{accept},q_{reject}}$
+- $Q$ insieme di stati finiti
+- $\Sigma$ Alfabeto di input
+- $\Gamma$ alfabeto del nastro 
+- Stato iniziamo $q_{0}$
+- Stato di accettazione $q_{accept}$
+- Stato di rifiuto $q_{reject}$
+- $\sigma$ funzione di transizione
+
+La risoluzione si basa su *far svolgere l'automa*, e poi **consultare la memoria**.
+Attenzione che la macchina di touring si può realizzare effettivamente in maniere più complesse. Un esempio è una macchina con **più nastri** (e di conseguenza *due testine*).
+
+Inoltre *si dimostra* che qualsiasi problema risolvibile da una macchina di Touring a $k$ nastri, può essere risolto da una macchina di Touring a *singolo nastro*. Ma ovviamente in maniera **Più lenta**.
+
 ### Modello di Von Neumann
 Il modello di Von Neumann descrive un elaboratore elettronico in una serie di blocchi, ed è pensata per essere, al contrario della macchina di touring, **fisicamente realizzabile**
 A prima battuta identifichiamo 4 blocchi.
