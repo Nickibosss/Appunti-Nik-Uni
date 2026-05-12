@@ -164,5 +164,5 @@ Chiamo **dominio piano** ogni insieme di $\mathbb{R}^{2}$ che sia **chiuso** e t
 ### Insieme continuo
 Un **insieme chiuso** si dice *continuo* se non può mai risultare *unione di due insiemi chiusi*, non vuoti e disgiunti.
 
-#### Proposizione
+#### Proposizione 1
 Ogni insieme di $E$ chiuso $\dots$ mi sono perso
