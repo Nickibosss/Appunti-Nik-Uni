@@ -35,6 +35,7 @@ I libri sono:
 Il professore ci dice che sostanzialmente ci servono solo **due libri**, uno sulla parte di *calcolatori* ed un altro sulla parte di *reti logiche*.
 
 Il professore ci dice che comunque il corso è una **prima parte** di una sfilza di esami che *si basano su questo*.
+
 ## ESAME
 Due prove:
 - Scritta.

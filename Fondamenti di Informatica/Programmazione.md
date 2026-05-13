@@ -1,4 +1,10 @@
-#teoria #programmazione #università 
+---
+id: Programmazione
+aliases: []
+tags:
+  - #teoria #programmazione #università
+---
+
 Programmare significa scrivere in uno specifico linguaggio di programmazione un algoritmo capace di risolvere un problema
 Un linguaggio di programmazione prevede un certo tipo di regole che dobbiamo conoscere per programmare.
 Importante ricordare che il codice [[C]] che scriviamo non viene capito direttamente dal processore ma c'è bisogno di una traduzione in linguaggio macchina.

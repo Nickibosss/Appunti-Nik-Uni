@@ -1,4 +1,10 @@
-#università #teoria 
+---
+id: Traduzione del codice C
+aliases: []
+tags:
+  - #università #teoria
+---
+
 Inizia da un pezzo di codice C scritto da un editor
 Il programma scritto in linguaggio di alto livello passa per il [[compilatore]], che produce i blocchi di basso livello, che sono la traduzione in basso livello derivanti dal programma scritto.
 Questo codice in genere deve essere unito a altri pezzi che garantiscono la funzionalità (quindi **librerie di sistema**, oppure soluzioni modulari già trovate, e librerie di funzioni)

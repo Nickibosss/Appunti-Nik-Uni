@@ -1,3 +1,9 @@
+---
+id: Lezione 1 - Dimostrazioni e definizioni di base
+aliases: []
+tags: []
+---
+
 Sappiamo che il piano numerico lo indichiamo come $R^{2}$ è l'insieme di tutte le coppie $(x,y)$, che rappresentiamo sul grafico cartesiano.
 Quello che andiamo a rappresentare con il punto $P$ possiamo quindi descriverlo come un **vettore**.
 Come su *algebra e geometria* sono *n-uple* ordinate.

@@ -1,4 +1,10 @@
-#università #programmazione #teoria 
+---
+id: Ordinamento
+aliases: []
+tags:
+  - #università #programmazione #teoria
+---
+
 Cosa abbastanza ovvia ma per ordinare una struttura dati devo avere un *criterio* per ordinarli.
 Un algoritmo di ordinamento è un algoritmo che restituisce una struttura di dati, o la *modifica*, ordinando gli elementi.
 Seguono delle soluzioni molto basilari, ma ez per il boss.

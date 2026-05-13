@@ -1,4 +1,10 @@
-#teoria #università #codifica_e_rappresentazione 
+---
+id: Codifica dei numeri
+aliases: []
+tags:
+  - #teoria #università #codifica_e_rappresentazione
+---
+
 # Rappresentazione dei numeri reali
 A differenza dei numeri interi, i numeri reali sono *infinitamente densi*; quindi anche tra due numeri infinitamente piccoli esistono numeri infiniti.
 Non possiamo rappresentare tutti questi numeri in un architettura finita.
@@ -13,9 +19,9 @@ Risolvo questo errore con un arrotondamento.
 Effettivamente non rimuovo totalmente l'errore ma ne introduco uno accettabile.
 Per quando questo errore non è prevedibile, è almeno limitato dal peso della cifra meno significativa:
 	In generale, se **-m** è il peso della cifra meno significativa, l'errore massimo che commetto è: 
-	$$
+$$
 \epsilon = \frac{1}{2}*10^{-m}
-	$$
+$$
 
 Esistono due modi principali per la notazione
 ## Soluzione 1

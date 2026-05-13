@@ -1,4 +1,10 @@
-#teoria #università
+---
+id: Roba Persico
+aliases: []
+tags:
+  - #teoria #università
+---
+
 Cosa faremo in questo corso:
 Prima cosa vedremo come immagazinare informazione.
 [[Codifica dei numeri]] [[Codifica dell'alfabeto]] [[Codifica di oggetti digitali]]

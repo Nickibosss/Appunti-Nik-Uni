@@ -1,3 +1,9 @@
+---
+id: Funzione circonferenza
+aliases: []
+tags: []
+---
+
 La circonferenza **NON è UNA FUNZIONE**. Ad ogni ascissa corrispondono *due ordinate*, quindi non rispetta la **definizione** di funzione.
 
 Possiamo esprimere la circonferenza in diversi modi:

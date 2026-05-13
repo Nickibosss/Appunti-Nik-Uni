@@ -1,4 +1,10 @@
-#università #programmazione #logica #teoria 
+---
+id: Ricorsione
+aliases: []
+tags:
+  - #università #programmazione #logica #teoria
+---
+
 Un sottoprogramma è definito ricorsiva se nel corpo della funzione viene *chiamata* la **funzione stessa**.
 L'esempio classico è il calcolo del fattoriale:
 ```C

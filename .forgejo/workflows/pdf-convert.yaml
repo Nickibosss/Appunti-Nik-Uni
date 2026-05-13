@@ -1,0 +1,33 @@
+name: Converti Markdown a PDF
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+jobs:
+  convert-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout commit
+        uses: actions/checkout@v4
+
+      - name: Prepara workspace
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc texlive-luatex texlive-latex-extra texlive-lang-italian fonts-dejavu zip wget
+          wget https://github.com/jgm/pandoc/releases/download/3.1.13/pandoc-3.1.13-1-amd64.deb
+          sudo dpkg -i pandoc-3.1.13-1-amd64.deb
+
+      - name: Esegui script di conversione a PDF
+        run: |
+          chmod +x createPdf.sh
+          ./createPdf.sh
+
+      - name: Carica ZIP su release
+        uses: https://github.com/softprops/action-gh-release@v2
+        with:
+          files: pdf/*.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

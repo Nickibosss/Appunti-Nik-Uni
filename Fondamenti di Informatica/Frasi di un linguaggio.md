@@ -1,4 +1,10 @@
-#teoria #programmazione #università
+---
+id: Frasi di un linguaggio
+aliases: []
+tags:
+  - #teoria #programmazione #università
+---
+
 Tutti i linguaggi di programmazione hanno sintassi precisa, le frasi sono di quattro tipologie:
 - Dichiarazioni, cioè sono le istruzioni al traduttore, *non vengono tradotte in codice macchina*.
 - Istruzioni, che tradotte in codice macchina indicano al processore le operazioni da svolgere.

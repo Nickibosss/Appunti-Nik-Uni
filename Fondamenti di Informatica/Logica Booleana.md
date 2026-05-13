@@ -1,4 +1,10 @@
-#programmazione #università #teoria 
+---
+id: Logica Booleana
+aliases: []
+tags:
+  - #programmazione #università #teoria
+---
+
 In generale i nostri *elaboratori* sono macchine che **compiono operazioni**.
 Alcune sono operazioni matematiche, altre sono operazioni *logiche*.
 

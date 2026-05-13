@@ -1,3 +1,9 @@
+---
+id: Come sono realizzate le memorie
+aliases: []
+tags: []
+---
+
 Una [[Memorie|memoria]] è fondamentalmente formata da diverse celle.
 Quando vado a selezionare un *indirizzo*, ho bisogno di abilitare la cella che voglio scegliere, quindi ho bisogno di un *decodificatore*.
 Una volta abilitata, in lettura è sufficiente dato che grazie alla [[Logica 3-state e memorie]], posso far uscire tutte le celle sulla stessa linea dati.

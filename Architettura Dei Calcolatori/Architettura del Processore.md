@@ -1,3 +1,9 @@
+---
+id: Architettura del Processore
+aliases: []
+tags: []
+---
+
 Argomento che all'esame non esce, ma utile lo stesso.
 
 Come progettiamo un sistema **General Purpose**?ù

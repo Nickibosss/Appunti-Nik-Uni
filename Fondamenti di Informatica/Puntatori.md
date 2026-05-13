@@ -1,4 +1,10 @@
-#programmazione #teoria #università #roba_complicata
+---
+id: Puntatori
+aliases: []
+tags:
+  - #programmazione #teoria #università #roba_complicata
+---
+
 Odio i puntatori odio i puntatori odio i puntatori
 
 Un puntatore è una *variabile*, quindi uno spazio di memoria riservato dal elaboratore, che contiene un **indirizzo**.

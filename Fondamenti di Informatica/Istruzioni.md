@@ -1,4 +1,10 @@
-#università #architettura #teoria #roba_complicata
+---
+id: Istruzioni
+aliases: []
+tags:
+  - #università #architettura #teoria #roba_complicata
+---
+
 Una istruzione *di basso livello* è una operazione semplice messa a disposizione dalla CPU.
 
 La lunghezza di un instruzione dipende dalla CPU e sono definite da un codice binario definita dal linguagigo macchina.

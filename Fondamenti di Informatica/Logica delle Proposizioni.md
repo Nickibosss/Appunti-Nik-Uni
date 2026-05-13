@@ -1,4 +1,10 @@
-#università #teoria #logica
+---
+id: Logica delle Proposizioni
+aliases: []
+tags:
+  - #università #teoria #logica
+---
+
 Una **proposizione** è una qualsiasi affermazione che può essere *vera* o *falsa*.
 Considerando `0` come falso e `1` come vero possiamo usare la [[Logica Booleana|logica di Boole]] per determinare la verità di un certo *predicato*, che è formato da *proposizioni* e *operatori logici*.
 ```

@@ -1,4 +1,10 @@
-#università #programmazione #variabili 
+---
+id: Variabili enumerative
+aliases: []
+tags:
+  - #università #programmazione #variabili
+---
+
 Può capitare nei nostri problemi che dobbiamo affrontare delle variabili che assumono un numero **finito** di valori. 
 In questo caso al posto di usare ad esempio un intero ed assegnare a x valori un significato, esiste un modo più *chiaro* per scrivere questo codice: il tipo **enumerativo**.
 Quando lo andiamo a definire andiamo a scrivere *quali* valori può assumere. 

@@ -1,4 +1,10 @@
-#programmazione #teoria #università #roba_complicata 
+---
+id: Stringhe
+aliases: []
+tags:
+  - #programmazione #teoria #università #roba_complicata
+---
+
 In [[C]] le stringhe sono un array di caratteri. Una loro peculiarità è che la loro terminazione è segnalata dal *carattere tappo* `\0` che è un byte composto da tutti `0`. 
 In C le implementiamo con questa sintassi:
 ```C

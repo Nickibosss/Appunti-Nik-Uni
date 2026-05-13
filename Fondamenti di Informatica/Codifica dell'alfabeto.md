@@ -1,4 +1,10 @@
-#codifica_e_rappresentazione #teoria #università
+---
+id: Codifica dell'alfabeto
+aliases: []
+tags:
+  - #codifica_e_rappresentazione #teoria #università
+---
+
 # Standard di codifica
 ## EBCDIC
 Esistono diversi *standard* per codificare i caratteri di alfabeto.

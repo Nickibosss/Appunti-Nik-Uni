@@ -1,0 +1,59 @@
+\usepackage{tcolorbox} 
+\tcbuselibrary{hooks}
+\usepackage{xcolor}    
+\usepackage{fancyhdr}  
+
+% palette
+\definecolor{calloutbg}{HTML}{F2F6FF}    
+\definecolor{calloutborder}{HTML}{4D78CC} 
+\definecolor{textgray}{HTML}{222222}      
+\definecolor{codebg}{HTML}{F6F8FA}
+\definecolor{codetext}{HTML}{24292E}
+\definecolor{codeborder}{HTML}{D0D7DE}
+
+
+\renewcommand{\familydefault}{\sfdefault}
+\color{textgray}
+
+% --- STILE BLOCCHI DI CODICE BASE ---
+% Diciamo a LaTeX di mettere un box scuro attorno a tutti i blocchi "verbatim"
+\BeforeBeginEnvironment{verbatim}{
+  \vspace{0.2cm}
+  \begin{tcolorbox}[
+    arc=2mm, 
+    boxrule=0.2mm, 
+    colback=codebg, 
+    colupper=codetext,
+    left=2mm, right=2mm, top=2mm, bottom=2mm
+  ]
+}
+\AfterEndEnvironment{verbatim}{
+  \end{tcolorbox}
+  \vspace{0.2cm}
+}
+
+% callout
+\renewenvironment{quote}{
+  \vspace{0.3cm}
+  \begin{tcolorbox}[
+    arc=2mm, 
+    boxrule=0.2mm, 
+    colback=calloutbg,
+    colframe=calloutborder,
+    left=3mm, right=3mm, top=2mm, bottom=2mm
+  ]
+}{
+  \end{tcolorbox}
+  \vspace{0.3cm}
+}
+
+% footer
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.5pt}
+
+\fancyhead[L]{\Large \textbf{\headerTitolo}} 
+\fancyhead[R]{\textcolor{gray}{\textit{\headerMateria}}}
+
+\fancyfoot[C]{\footnotesize \textcolor{gray}{Appunti di \textbf{Nik} - mrsketty.lemonsqueezy.com}}
+\fancyfoot[R]{\thepage}

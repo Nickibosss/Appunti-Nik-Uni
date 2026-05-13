@@ -1,4 +1,10 @@
-#università #architettura #teoria 
+---
+id: Algoritmi e modelli di esecutore (macchina di Touring)
+aliases: []
+tags:
+  - #università #architettura #teoria
+---
+
 Nell'informatica noi studiamo i *processi* che servono a elaborare le informazione e trovare una soluzione a un problema.
 Iniziamo sempre *analizzando* il problema, poi *progettiamo una soluzione*.
 

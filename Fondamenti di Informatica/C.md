@@ -1,4 +1,10 @@
-#teoria #università
+---
+id: C
+aliases: []
+tags:
+  - #teoria #università
+---
+
 è stato introdotto negli anni sessanta da [[Dennis Richie]].
 Ha inventato il concetto di [[Codice di alto livello]]
 

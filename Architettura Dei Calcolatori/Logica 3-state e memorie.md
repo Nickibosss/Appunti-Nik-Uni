@@ -1,3 +1,9 @@
+---
+id: Logica 3-state e memorie
+aliases: []
+tags: []
+---
+
 Fino ad ora abbiamo lavorato su sistemi che hanno come imput *due valori*. Ma questa architettura ha un difetto, il dispositivo **non può essere spento**. Lavora continuamente.
 Ovviamo a questo tramite la logica **3-state**.
 In questo caso abbiamo tre stati:

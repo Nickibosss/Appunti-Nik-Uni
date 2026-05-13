@@ -1,3 +1,9 @@
+---
+id: Il moto in due dimensioni
+aliases: []
+tags: []
+---
+
 Se ho un vettore $\bar{r_{1}}$ che individua la posizione di un corpo a tempo $t_{1}$ e $\bar{r_{2}}$ è il vettore a tempo $t_{2}$ per trovare lo spostamento tra i due vettori posso tranquillamente trovare lo **spostamento** $\Delta \bar{r}$ facemdo la *differenza* tra i due vettori in due modi:
 - Metodo del parallelogramma tra i due **vettori** $\bar{r_{1}}, \bar{r_{2}}$.
 - La differenza dei **componenti** dei vettori in questo modo:

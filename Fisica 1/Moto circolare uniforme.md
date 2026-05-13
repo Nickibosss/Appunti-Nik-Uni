@@ -1,3 +1,9 @@
+---
+id: Moto circolare uniforme
+aliases: []
+tags: []
+---
+
 In questo caso la mia velocità ha **modulo** costante, quindi l'*accelerazione* ha **solo componente centripeda**. Quindi ricordandoci che 
 $$
 \bar{a}_{avg} = \frac{\Delta \bar{v}}{\Delta t}

@@ -1,4 +1,10 @@
-#università #architettura #roba_complicata #teoria
+---
+id: Evoluzioni dal modello di Von Neumann
+aliases: []
+tags:
+  - #università #architettura #roba_complicata #teoria
+---
+
 Nella realtà ci sono una serie di ottimizzazioni che vengono fatte dal modello:
 
 ### Prima ottimizzazione - Interrupt

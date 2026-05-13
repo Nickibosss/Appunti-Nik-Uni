@@ -1,5 +1,10 @@
+---
+id: Operazioni con C
+aliases: []
+tags:
+  - #programmazione #università #teoria
+---
 
-#programmazione #università #teoria
 Capire che [[Tipi di variabili|tipo di variabile]] sto utilizzando è fondamentale, perchè **cambia il risultato** ottenuto dalle *operazioni di c*.
 
 Le operazioni che abbiamo in [[C]] sono:

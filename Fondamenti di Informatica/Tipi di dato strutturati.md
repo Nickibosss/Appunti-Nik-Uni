@@ -1,4 +1,10 @@
-#programmazione #università #teoria 
+---
+id: Tipi di dato strutturati
+aliases: []
+tags:
+  - #programmazione #università #teoria
+---
+
 Quando parliamo di dati strutturati possiamo parlare di dati strutturati *omogenei* oppure *eterogenei*.
 La tipologia più semplice sono array.
 ## Array

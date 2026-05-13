@@ -1,4 +1,10 @@
-#università #programmazione #teoria 
+---
+id: Strutture di controllo
+aliases: []
+tags:
+  - #università #programmazione #teoria
+---
+
 Abbiamo a che fare con *paradigmi* che definiscono i modelli adottati da un certo linguaggio di programmazione.
 
 In generale il nostro programma si definisce da *dati* e *flusso di controllo*.

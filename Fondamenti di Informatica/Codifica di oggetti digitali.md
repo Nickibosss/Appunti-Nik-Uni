@@ -1,4 +1,10 @@
-#codifica_e_rappresentazione #università #teoria 
+---
+id: Codifica di oggetti digitali
+aliases: []
+tags:
+  - #codifica_e_rappresentazione #università #teoria
+---
+
 Sia per quanto riguarda **immagini o video**, sia per **suoni**, dobbiamo codificare un segnale *analogico* in maniera *discreta*.
 Effettivamente questo da necessità di un *operazione di discretizzazione*. Quindi trasformare i valori **continui** tramite *Campionamento* e *Quantizzazione*.
 Abbiamo già parlato di questo (Ricordiamo che mentre il campionamento non comporta necessariamente una perdita di precisione mentre la Quantizzazione porta necessariamente ad un errore di approssimazione).

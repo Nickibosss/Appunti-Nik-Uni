@@ -1,3 +1,9 @@
+---
+id: Equazioni del pendolo semplice
+aliases: []
+tags: []
+---
+
 Ricordando che effettivamente segue una traiettoria **circolare**, quindi la velocità istantanea è *tangenziale* alla curva.
 
 Prima assunzione che dobbiamo fare è che gli angoli siano **necessariamente piccoli**.

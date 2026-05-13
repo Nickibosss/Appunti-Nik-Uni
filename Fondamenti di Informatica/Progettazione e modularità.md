@@ -1,4 +1,10 @@
-#università #programmazione #teoria 
+---
+id: Progettazione e modularità
+aliases: []
+tags:
+  - #università #programmazione #teoria
+---
+
 Per andare a progettare un *algoritmo* devo innanzitutto andare a **scomporre** il problema che voglio affrontare, in maniera anche opportunatamente iterativa.
 Il risultato di questa scomposizione è la divisione del mio programma in piccoli pezzettini chiamati **moduli**.
 Il vantaggio di una soluzione *modulare* è che ogni pezzo è più facile da *testare*, *interpretare* e 

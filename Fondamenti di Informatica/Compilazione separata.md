@@ -1,3 +1,9 @@
+---
+id: Compilazione separata
+aliases: []
+tags: []
+---
+
 Abbiamo già parlato della pipeline di [[Traduzione del codice C|compilazione]] in [[C]].
 Nulla ci dice che il linker non vada a collegare un file *scritto da noi*.
 

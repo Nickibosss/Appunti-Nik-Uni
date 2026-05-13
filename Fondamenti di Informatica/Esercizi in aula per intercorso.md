@@ -1,4 +1,10 @@
-#esercizi #codifica_e_rappresentazione #logica #programmazione #università
+---
+id: Esercizi in aula per intercorso
+aliases: []
+tags:
+  - #esercizi #codifica_e_rappresentazione #logica #programmazione #università
+---
+
 
 ## Codifica e rappresentazione
 >[!exercise] Esercizio 1  

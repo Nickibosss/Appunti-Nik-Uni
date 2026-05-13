@@ -1,4 +1,10 @@
-#programmazione #università #teoria #variabili
+---
+id: Tipi di variabili
+aliases: []
+tags:
+  - #programmazione #università #teoria #variabili
+---
+
 Una variabile è semplicemente un *contenitore di informazioni*.
 
 Esistono due tipi:

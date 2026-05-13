@@ -1,3 +1,9 @@
+---
+id: Memorie
+aliases: []
+tags: []
+---
+
 I dispositivi di memoria basilari sono **registri e flip-flop**.
 Questi ci permettono di leggere e scrivere da un dispositivo, ma una memoria deve essere in grado di, contenendo moli di informazioni *elevate*, **selezionare** la sezione di memoria (la *cella*), su dove operare.
 
