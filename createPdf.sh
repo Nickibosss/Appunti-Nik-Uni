@@ -37,6 +37,10 @@ find . -type f -name "*.md" ! -name "README.md" -not -path "*/.*" -print0 | whil
   echo "\\newcommand{\\headerTitolo}{$filename}" > meta.tex
   echo "\\newcommand{\\headerMateria}{$subject}" >> meta.tex
 
+  # fix blocchi di codice
+  echo "\\usepackage{fvextra}" >> meta.tex
+  echo "\\fvset{breaklines=true, breakanywhere=true}" >> meta.tex
+
   # Correzione errori (grazie gemini)
   sed -E 's/> ?\[![a-zA-Z0-9_-]+\]/> /g' "$file" | sed 's/[ \t]*$//' | awk '/^[ \t]*\$\$[ \t]*$/ { if (!m) { print ""; print $0; m=1 } else { print $0; print ""; m=0 } next } 1' | cat -s > temp.md
 
