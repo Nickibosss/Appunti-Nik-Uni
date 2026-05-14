@@ -45,6 +45,14 @@ find . -type f -name "*.md" ! -name "README.md" -not -path "*/.*" -print0 | whil
   echo "\\usepackage{tikz}" >> meta.tex
   echo "\\usetikzlibrary{positioning, shapes.geometric, arrows.meta}" >> meta.tex
 
+  # stili globali per diagrammi di flusso
+  echo "\\tikzset{" >> meta.tex
+  echo "  terminal/.style={rectangle, rounded corners=0.5cm, minimum width=2.5cm, minimum height=1cm, text centered, draw=black, fill=red!15}," >> meta.tex
+  echo "  process/.style={rectangle, rounded corners, minimum width=2.5cm, minimum height=1cm, text centered, draw=black, fill=blue!10}," >> meta.tex
+  echo "  decision/.style={diamond, aspect=2, minimum width=2.5cm, minimum height=1cm, text centered, draw=black, fill=green!10}," >> meta.tex
+  echo "  arrow/.style={thick, ->, >={Stealth[length=2.5mm]}}" >> meta.tex
+  echo "}" >> meta.tex
+
   # Correzione errori (grazie gemini)
   sed -E 's/> ?\[![a-zA-Z0-9_-]+\]/> /g' "$file" | sed 's/[ \t]*$//' | awk '/^[ \t]*\$\$[ \t]*$/ { if (!m) { print ""; print $0; m=1 } else { print $0; print ""; m=0 } next } 1' | cat -s > temp.md
 
