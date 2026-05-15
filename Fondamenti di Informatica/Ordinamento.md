@@ -40,22 +40,22 @@ Dopo `n-1` passi il vettore risulterà *ordinato*.
 Parlando di complessità asintotica la complessità è **quadratica** (`n*n`).
 
 >[!example] Esempio:
->```C
+> ```C
 >void selection_sort (int v[], int dimensione){
 >	for (int i=0; i<dimensione; i++){
 >		int pos_min = minimo(V, dimensione-1, i);
 >		scambia (V+i, V+pos_min);
 >	}
 >}
->```
+> ```
 >In questo caso `minimo` e `scambia` sono funzioni già implementate. 
 
 > [!example] Possibile implementazione di `minimo` e `scambia`
->```C
+> ```C
 >// minimo:
 >int minimo(struct cliente v[], const int dimensione, const int i){
 >    int pos_minimo = i;
-  >  for (int j = i+1; j<dimensione; j++) { // j = i+1 così non controllo v[i]>v[i]
+>    for (int j = i+1; j<dimensione; j++) { // j = i+1 così non controllo v[i]>v[i]
 >        if (v[pos_minimo].tipo>v[j].tipo) {
 >            pos_minimo=j;
 >        }
@@ -70,7 +70,7 @@ Parlando di complessità asintotica la complessità è **quadratica** (`n*n`).
 >    v[pos2]=temp;
 >    return;
 >}
->```
+> ```
 
 ### Insertion sort
 L'insertion sort invece descrive un approccio differente che è analogo all'ordinamento di un mazzo di carte.
@@ -112,7 +112,7 @@ Ovviamente in questo caso abbiamo bisogno di un indice che indica l'elemento che
 
 [vedi implementazione sul PDF]
 > [!example] Ecco una possibile implementazione:
->```C
+> ```C
 >void insertion_sort (int v[], int dimensione){
 >    for(int i=1; i<dimensione; i++){
 >        int j=i;
@@ -123,7 +123,7 @@ Ovviamente in questo caso abbiamo bisogno di un indice che indica l'elemento che
 >        }
 >    }
 >}
->```
+> ```
 
 ### Merge sort
 Il merge sort è un algoritmo proposto da *Von Neumann* e usa la [[Ricorsione|ricorsione]].
@@ -207,4 +207,4 @@ Parto dal basso:
 >		} 
 >	}
 >}
->```
+> ```
