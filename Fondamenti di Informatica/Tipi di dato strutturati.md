@@ -62,12 +62,6 @@ Questo ci permette di fare tante cose di ottimizzazione, e evitare errori.
 
 In pratica delego la gestione dell'array con la variabile di riempimento ad una funzione a parte, che si occupa di *incrementare* la variabile di riempimento ed *inserire* i nostri dati nell'array.
 
-
-
-
-
-
-
 Sotto alcuni algoritmi utili.
 ![[array1.c]]
 ```C
@@ -253,14 +247,14 @@ La rappresentazione in questo caso funziona come una matrice.
 In questo caso la prima dimensione setta il numero di *colonne* la seconda il numero di *righe*, e così via.
 
 >[!esempio] Esempio
->```C
+> ```C
 >int num[2][3] = {{1,2,3},{4,5,6}};
 >// oppure 
 >int num[2][3] = {1,2,3,4,5,6};
 > 
 > // accedo ad un elemento con entrambi gli indici:
 > int num2 = num[1][2];
->```
+> ```
 
 ### Typedef
 Un *typedef* è uno strumento che dovviamo conoscere ma non è obbligatorio usare. Il professore consiglia di evitare di *abusarne*, o utilizzarlo at all. Magari proviamolo qualche volta per capire come funziona ma evitiamo di utilizzarlo grazie.

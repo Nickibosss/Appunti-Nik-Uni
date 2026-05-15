@@ -11,6 +11,7 @@ Un puntatore è una *variabile*, quindi uno spazio di memoria riservato dal elab
 In [[C]], l'esistenza dei puntatori ci permette di modificare la *memoria* direttamente.
 
 Servono a:
+
 - Gestire la memoria in maniera *dinamica*.
 - Gestire le *sequenze di valori* (**array**, **vettori**).
 - Gestire i *parametri di una funzione*.
@@ -37,6 +38,7 @@ pintero = (int*) preale;
 ```
 
 La gestione delle varibili di tipo puntatore fa utilizzo degli operatori `&` e `*`.
+
 - `&` `- operatore di referenziazione-` restituisce l'*indirizzo della locazione di memoria* nel quale la variabile è memorizzata.
 - `*` `-operatore di puntamento-` dato un puntatore, porta al *valore della variabile puntata*; quindi parto dal puntatore ed arrivo all' *area cui punta il puntatore*.
 

@@ -8,6 +8,7 @@ tags:
 Cosa abbastanza ovvia ma per ordinare una struttura dati devo avere un *criterio* per ordinarli.
 Un algoritmo di ordinamento è un algoritmo che restituisce una struttura di dati, o la *modifica*, ordinando gli elementi.
 Seguono delle soluzioni molto basilari, ma ez per il boss.
+
 ### Selection sort
 Il **selection sort** è un algoritmo dei più basilari.
 Ipotizziamo di avere un vettore non ordinato.
@@ -76,8 +77,11 @@ Parlando di complessità asintotica la complessità è **quadratica** (`n*n`).
 L'insertion sort invece descrive un approccio differente che è analogo all'ordinamento di un mazzo di carte.
 Lavora su *due  vettori*. 
 Parte dal vettore di elementi da ordinare e itera in questo modo:
+
 - Scorre il vettore da ordinare, seleziona un valore
 - Decide dove inserirlo nel secondo vettore ( o opportunamente *sottovettore*)
+	- Importante è precisare che posso trattare una porzione dello stesso vettore di partenza come *sottovettore*.
+	- Riguardo questi appunti, nella *spiegazione* uso due vettori, mentre nell'*implementazione* mi muovo sullo stesso.
 
 ```
 // ^ valore considerato
@@ -109,8 +113,6 @@ Sicuramente è più efficiente lavorare in un solo vettore, spostando i valori *
 **IMPORTANTISSIMO**
 Ovviamente in questo caso abbiamo bisogno di un indice che indica l'elemento che consideriamo e per ordinare l'elemento facciamo confronti due a due **da sinistra a destra**.
 
-
-[vedi implementazione sul PDF]
 > [!example] Ecco una possibile implementazione:
 > ```C
 >void insertion_sort (int v[], int dimensione){
@@ -130,6 +132,7 @@ Il merge sort è un algoritmo proposto da *Von Neumann* e usa la [[Ricorsione|ri
 Usa la tecnica **divide et impera**.
 
 L'algoritmo è semplice:
+
 - se la sequenza ha lunghezza 1, è implicitamente ordinata
 - Altrimenti divido la sequenza in **due metà** (*divide*):
 	- Ognuna di queste sottosequenze vengono ordinate **applicando ricorsivamente la funzione** (*impera*).
