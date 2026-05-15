@@ -1,6 +1,7 @@
 \usepackage{tcolorbox} 
 \usepackage{xcolor}    
 \usepackage{fancyhdr}  
+\tcbuselibrary{breakable}
 
 % palette
 \definecolor{calloutbg}{HTML}{F2F6FF}    
@@ -14,6 +15,7 @@
 \renewenvironment{quote}{
   \vspace{0.3cm}
   \begin{tcolorbox}[
+      breakable,
       arc=2mm, 
       boxrule=0.5mm, 
       colback=calloutbg,
