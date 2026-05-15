@@ -22,8 +22,11 @@ jobs:
 
       - name: Esegui script di conversione a PDF
         run: |
-          chmod +x createPdf.sh
           ./createPdf.sh
+
+      - name: Esegui script di creazione ZIP
+        run: |
+          ./zipFolders.sh
 
       - name: Carica ZIP su release
         uses: https://github.com/softprops/action-gh-release@v2
