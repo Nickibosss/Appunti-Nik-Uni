@@ -9,19 +9,22 @@ Per andare a progettare un *algoritmo* devo innanzitutto andare a **scomporre** 
 Il risultato di questa scomposizione è la divisione del mio programma in piccoli pezzettini chiamati **moduli**.
 Il vantaggio di una soluzione *modulare* è che ogni pezzo è più facile da *testare*, *interpretare* e 
 
-La mia progettazione quindi necessita di una *analisi* **top -down**, quindi divido il problema in 
+La mia progettazione quindi necessita di una *analisi* **top -down**, quindi divido il problema in moduli.
+
 ### I moduli
 Innanzitutto per andare a definire un modulo è necessario fare *astrazione*. -> quindi non mi interessa come il modulo processa, ma semplicemente *cosa risolve*
 
 Nel mio programma posso trnquillamente *invocare* una soluzione sapendo cosa risolve, ma **non interessandomi** al modo in cui questa soluzione viene trovata.
 
 Ogni modulo è quindi composto da due parti:
+
 - **Interfaccia**
 	- Quello che effettivamente esce all'esterno
 - **Corpo**
 	- Il codice che esegue il modulo
 
 I tipi di astrazzione di cui mi servo sono:
+
 - Astrazione sul controllo:
 	- Quindi astraggo una *funzionalità* dai dettagli della sua implementazione.
 	- Scompongo la mia soluzione in *sottoprogrammi*.
@@ -43,6 +46,7 @@ tipo_ritorno nome_fun (tipo_par  Parametro1, tipo_par Parametro2 ...){
 ```
 
 Qui ho definito:
+
 - il **tipo** di dato che mi aspetto ridare dal programma,
 - il **nome** della funzione.
 - i **parametri** che entrano nella funzione.

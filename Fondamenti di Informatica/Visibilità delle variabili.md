@@ -9,6 +9,7 @@ Possiamo dichiarare le [[Tipi di variabili|variabili]] sia nel programma princip
 Questo è regolato dalle regole di **visibilità** della variabile.
 
 Quindi la visibilità è *limitata* al **blocco più interno** in cui si trova. 
+
 - Se una variabile fosse stata dichiarata *all' interno* di una funzione, questa **ha senso** solo in questo.
 - Se lavoriamo con blocchi *annidati* dobbiamo fare molto attenzione.
 	- Il blocco interno *ha visibilità* verso i più esterni.
@@ -24,21 +25,21 @@ Allo stesso modo *non posso* ri-dichiarare *la stessa* variabile **più di una v
 Questo però non mi limita da dichiarare una variabile con lo *stesso identificativo* in un blocco **più interno** rispetto a quello in cui viene dichiarata la prima volta.
 
 >[!example] Esempio:
->```c
+> ```c
 >int main (){
 >int a = 44;
 >int a = 10;  // ri-dichiarazione!!
 >}
->```
+> ```
 >**non è lecito**
->```c
+> ```c
 >int main (){
 >int a = 10;
 >{
 >	int a = 44;
 >}
 >}
->```
+> ```
 >**é lecito**
 
 Inoltre se scrivo codice di questo tipo:
@@ -62,6 +63,7 @@ int b = 3;
 Quando dichiaro una variabile *con stesso identificativo* in un blocco interno, ho quello che si chiama **aliasing**, quindi la variabile dichiarata nel blocco più interno *scherma* quella più esterna.
 
 Più in generale le variabili possono essere:
+
 - **locali**, quindi dichiarate all'interno di un blocco.
 	- In questo caso seguono la gerarchia dei blocchi per determinare la visibilità.
 	- I *parametri formali* della funzione, che sono visibili **solo** *all'interno della funzione*.

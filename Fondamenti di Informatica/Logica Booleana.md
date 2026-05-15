@@ -9,6 +9,7 @@ In generale i nostri *elaboratori* sono macchine che **compiono operazioni**.
 Alcune sono operazioni matematiche, altre sono operazioni *logiche*.
 
 Al centro della *logica booleana* abbiamo tre operatori:
+
 - **AND** - dati due bit restituisce `1`, *se e solo se* entrambi i bit sono `1`, **altrimenti** restituisce `0`
 - **OR** - dati due bit restituisce `1` *a meno che* entrambi i bit siano `0`
 - **NOT** - restituisce l'**opposto** del bit
@@ -21,9 +22,10 @@ Queste operazioni sono descritte nelle **tavole di verità**.
 | `0` | `1` | `1`       | `0`         | `1`        | `1`         |
 | `1` | `0` | `0`       | `0`         | `1`        | `1`         |
 | `1` | `1` | `0`       | `1`         | `1`        | `0`         |
--- **XOR** restituisce `1` *se e solo se* **uno e uno solo** dei bit sono `1`.
+- **XOR** restituisce `1` *se e solo se* **uno e uno solo** dei bit sono `1`.
  
 Questa è un operazione che lavora sui singoli bit, ma gli **operatori** possono accettare come argomento anche due *serie* di bit.
+
 - In questo caso operano sui bit che *hanno la stessa posizione*
 Esempio:
 ```
@@ -36,9 +38,10 @@ Esempio:
 Una *stringa* può essere usata come **bitmask**. In tal caso gli operatori *bitwise* hanno diversi usi super pratici.
 
 Nello specifico useremo la logica booleana per associare `0` o `1` a variabili di *verità* e utilizzare queste variabili come *condizioni* nei nostri algoritmi, specificamente in quello che chiamiamo **logica delle proposizioni**.
+
 - Specificamente se abbiamo nel nostro codice una condizione più semplice rischiamo meno errori :3
 
--- la *logica di bool* va a modellare una **rete logica elettronica** (modella circuiti fisici).
+- la *logica di bool* va a modellare una **rete logica elettronica** (modella circuiti fisici).
 
 Cosa è [l'algebra booleana](https://it.wikipedia.org/wiki/Algebra_di_Boole)?
 `[scrivi appunti algebra di boole]`

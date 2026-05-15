@@ -21,6 +21,7 @@ In sostanza queste funzioni portano a una fase *ascendente*, cioè una invocazio
 Questa cosa funziona perchè abbiamo definito due casi: uno che **restituisce direttamente** il risultato e un altro che **invoca la funzione**, altrimenti sarebbe invocata *all'infinito*.
 
 Parlando di memoria:
+
 - Nella fase ascendente salvo sullo *stack* (per questo ascendo) le variabili formali, quelle interne alla funzione e l'**indirizzo di ritorno**.
 	- Questa si chiama *record* di attivazione.
 	- Quindi alloco il *record di attivazione* della prima invocazione, che alloca la seconda invocazione e così via.

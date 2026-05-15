@@ -49,8 +49,8 @@ find . -type f -name "*.md" ! -name "README.md" -not -path "*/.*" -print0 | whil
     --highlight-style=tango -H meta.tex -H header.tex \
     -o "${DIR_MATERIA_PDF}/${pdf_name}"
 
+  rm -f temp.md meta.tex
 done
 
-rm -f temp.md meta.tex
 
 echo -e "${GREEN}Generazione completata ${NC}(almeno quella senza errori). File messi in ${YELLOW}/$OUTPUT_DIR${NC}."
