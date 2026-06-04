@@ -10,4 +10,4 @@ $$
 
 Sapendo che $M$ é superiore a qualsiasi numero in $A$, appartiene a $B$, e sapendo che é il **minore** (o uguale) di qualsiasi numero in $B$, **é il minore di** $B$.
 
-Per l'estremo inferiore si dimostra analogamente :).
+Per l'estremo inferiore si dimostra analogamente :)

@@ -11,7 +11,7 @@
 - [ ] 200 [[Teoria delle Successioni Numeriche]]
     - [ ] 210 [[Proprietà dei limiti]]
         - [ ] 211 [[Teorema di unicità del limite]]
-        - [ ] 212 [[Teorema delle successioni limitate (convergente ⇒ limitata)]]
+        - [ ] 212 [[Teorema delle successioni limitate (convergente -> limitata)]]
         - [ ] 213 [[Teorema della permanenza del segno]]
         - [ ] 214 [[Teorema dei carabinieri (o del confronto)]]
         - [ ] 215 [[Teorema del limite di una successione limitata per una infinitesima]]
