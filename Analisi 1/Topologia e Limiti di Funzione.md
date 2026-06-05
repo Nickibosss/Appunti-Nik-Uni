@@ -1,0 +1,12 @@
+### Definizioni che mi servono
+- Intorno di $x_{0}$:
+	- Un intorno é un qualsiasi intervallo aperto che contiene $x_{0}$. Di solito ne usiamo "simmetrici", quindi intervalli del tipo $(x_{0}-\sigma,x_{0}+\sigma)$.
+- Punto di accumulazione:
+	- Un punto $x_{0}$ si dice di accumulazione per un insieme $X$ se in ogni suo intorno cade almeno un punto di $X$ diverso da $x_{0}$. Se cade almeno un punto diverso da $x_{0}$, allora ce ne cadono infiniti.
+- Punto isolato:
+	- Un punto isolato é un punto dell'insieme che ha un intorno in cui non cadono altri punti di $X$.
+- Insieme chiuso:
+	- Un insieme chiuso é un insieme che contiene tutti i suoi punti di accumulazione.
+	- In matematichese: $D(X)\subseteq X$
+- Insieme compatto:
+	- Un insieme é compatto se da ogni successione di punti al suo interno puoi estrarre una sottosuccessione che converge ad un punto interno all'insieme stesso.
