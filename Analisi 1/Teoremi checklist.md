@@ -22,7 +22,7 @@
         - [ ] 224 [[Teorema sull’aderenza (valori di aderenza ed estratte)]]
 - [ ] 300 [[Topologia e Limiti di Funzione]]
     - [ ] 310 [[Topologia della retta]]
-        - [ ] 311 [[Teorema di Heine-Borel (Compattezza ⟺ Chiuso e Limitato)]]
+        - [ ] 311 [[Teorema di Heine-Borel (Compattezza <==> Chiuso e Limitato)]]
     - [ ] 320 [[Relazione tra successioni e funzioni]]
         - [ ] 321 [[Teorema ponte (Legame tra limiti di funzioni e di successioni)]]
 - [ ] 400 [[Funzioni Continue]]
