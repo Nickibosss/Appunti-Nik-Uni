@@ -4,6 +4,7 @@ Una successione  $a_{n}$ si dice di Cauchy quando per ogni $\epsilon>0$ piccolo,
 $$
 	|a_{k}-a_{h}|<\epsilon, \ \ \ \ \forall h,k > \nu, \ \ \underset{ \text{piccola} }{ \forall\epsilon>0 }
 $$
+
 Quindi all'aumentare dell indice $n$, la distanza tra i termini diminuisce.
 
 ### Enunciato
