@@ -19,7 +19,7 @@
         - [ ] 221 [[Teorema sulle successioni monotone (regolarità)]]
         - [ ] 222 [[Teorema di Bolzano-Weierstrass]]
         - [ ] 223 [[Criterio di convergenza di Cauchy per le successioni]]
-        - [ ] 224 [[Teorema sull’aderenza (valori di aderenza ed estratte)]]
+        - [ ] 224 [[Teorema sull'aderenza (valori di aderenza ed estratte)]]
 - [ ] 300 [[Topologia e Limiti di Funzione]]
     - [ ] 310 [[Topologia della retta]]
         - [ ] 311 [[Teorema di Heine-Borel (Compattezza <==> Chiuso e Limitato)]]
