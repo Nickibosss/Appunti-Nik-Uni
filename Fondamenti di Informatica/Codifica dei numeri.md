@@ -2,7 +2,10 @@
 id: Codifica dei numeri
 aliases: []
 tags:
-  - #teoria #università #codifica_e_rappresentazione
+  - "#teoria"
+  - "#università"
+  - "#codifica_e_rappresentazione"
+  - "#fondamenti_di_informatica"
 ---
 
 # Rappresentazione dei numeri reali

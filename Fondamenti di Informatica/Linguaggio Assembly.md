@@ -1,7 +1,8 @@
 ---
 id: Linguaggio Assembly
 aliases: []
-tags: []
+tags:
+  - "#fondamenti_di_informatica"
 ---
 
 Il linguaggio assembly è il linguaggio macchina *puro*. Varia da processore a processore ed è un linguaggio che associa ad ogni *keyword* il diretto corrispondente del **linguaggio macchina**.

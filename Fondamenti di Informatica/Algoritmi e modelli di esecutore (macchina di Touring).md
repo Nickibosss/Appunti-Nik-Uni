@@ -2,7 +2,10 @@
 id: Algoritmi e modelli di esecutore (macchina di Touring)
 aliases: []
 tags:
-  - #università #architettura #teoria
+  - "#università"
+  - "#architettura"
+  - "#teoria"
+  - "#fondamenti_di_informatica"
 ---
 
 Nell'informatica noi studiamo i *processi* che servono a elaborare le informazione e trovare una soluzione a un problema.

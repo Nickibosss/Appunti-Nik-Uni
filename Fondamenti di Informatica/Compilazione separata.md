@@ -1,7 +1,8 @@
 ---
 id: Compilazione separata
 aliases: []
-tags: []
+tags:
+  - "#fondamenti_di_informatica"
 ---
 
 Abbiamo già parlato della pipeline di [[Traduzione del codice C|compilazione]] in [[C]].

@@ -2,7 +2,10 @@
 id: Ordinamento
 aliases: []
 tags:
-  - #università #programmazione #teoria
+  - "#università"
+  - "#programmazione"
+  - "#teoria"
+  - "#fondamenti_di_informatica"
 ---
 
 Cosa abbastanza ovvia ma per ordinare una struttura dati devo avere un *criterio* per ordinarli.

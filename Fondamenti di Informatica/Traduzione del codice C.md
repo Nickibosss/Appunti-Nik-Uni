@@ -2,7 +2,9 @@
 id: Traduzione del codice C
 aliases: []
 tags:
-  - #università #teoria
+  - "#università"
+  - "#teoria"
+  - "#fondamenti_di_informatica"
 ---
 
 Inizia da un pezzo di codice C scritto da un editor

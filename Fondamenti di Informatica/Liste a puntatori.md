@@ -1,3 +1,11 @@
+---
+tags:
+  - "#lista"
+  - "#puntatori"
+  - "#linked_list"
+  - "#fondamenti_di_informatica"
+---
+
 Una lista a puntatori (*linked list*) è un altro modo per **gestire la memoria**.
 
 Fino ad ora abbiamo visto che possiamo allocare array sia sullo **stack** che in **area heap**

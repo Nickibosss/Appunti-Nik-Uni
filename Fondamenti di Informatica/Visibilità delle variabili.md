@@ -2,7 +2,11 @@
 id: Visibilità delle variabili
 aliases: []
 tags:
-  - #università #programmazione #teoria #variabili
+  - "#università"
+  - "#programmazione"
+  - "#teoria"
+  - "#variabili"
+  - "#fondamenti_di_informatica"
 ---
 
 Possiamo dichiarare le [[Tipi di variabili|variabili]] sia nel programma principali sia nei sottoprogrammi, ma possono agire soltanto nel *blocco* in cui sono dichiarate, e sempre solo da *istruzioni* che **seguono** la sua dichiarazione.

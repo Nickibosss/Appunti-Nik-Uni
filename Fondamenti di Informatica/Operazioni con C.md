@@ -2,7 +2,10 @@
 id: Operazioni con C
 aliases: []
 tags:
-  - #programmazione #università #teoria
+  - "#programmazione"
+  - "#università"
+  - "#teoria"
+  - "#fondamenti_di_informatica"
 ---
 
 Capire che [[Tipi di variabili|tipo di variabile]] sto utilizzando è fondamentale, perchè **cambia il risultato** ottenuto dalle *operazioni di c*.
