@@ -2,7 +2,9 @@
 id: Roba Persico
 aliases: []
 tags:
-  - #teoria #università
+  - "#teoria"
+  - "#università"
+  - "#fondamenti_di_informatica"
 ---
 
 Cosa faremo in questo corso:

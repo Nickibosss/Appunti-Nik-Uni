@@ -2,7 +2,11 @@
 id: Ricorsione
 aliases: []
 tags:
-  - #università #programmazione #logica #teoria
+  - "#università"
+  - "#programmazione"
+  - "#logica"
+  - "#teoria"
+  - "#fondamenti_di_informatica"
 ---
 
 Un sottoprogramma è definito ricorsiva se nel corpo della funzione viene *chiamata* la **funzione stessa**.

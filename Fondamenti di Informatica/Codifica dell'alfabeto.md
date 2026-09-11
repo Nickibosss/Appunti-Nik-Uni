@@ -2,7 +2,10 @@
 id: Codifica dell'alfabeto
 aliases: []
 tags:
-  - #codifica_e_rappresentazione #teoria #università
+  - "#codifica_e_rappresentazione"
+  - "#teoria"
+  - "#università"
+  - "#fondamenti_di_informatica"
 ---
 
 # Standard di codifica

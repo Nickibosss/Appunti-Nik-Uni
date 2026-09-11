@@ -2,7 +2,10 @@
 id: Tipi di dato strutturati
 aliases: []
 tags:
-  - #programmazione #università #teoria
+  - "#programmazione"
+  - "#università"
+  - "#teoria"
+  - "#fondamenti_di_informatica"
 ---
 
 Quando parliamo di dati strutturati possiamo parlare di dati strutturati *omogenei* oppure *eterogenei*.

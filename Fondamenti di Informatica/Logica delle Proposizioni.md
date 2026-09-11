@@ -2,7 +2,10 @@
 id: Logica delle Proposizioni
 aliases: []
 tags:
-  - #università #teoria #logica
+  - "#università"
+  - "#teoria"
+  - "#logica"
+  - "#fondamenti_di_informatica"
 ---
 
 Una **proposizione** è una qualsiasi affermazione che può essere *vera* o *falsa*.

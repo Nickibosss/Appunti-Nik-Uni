@@ -2,7 +2,11 @@
 id: Tipi di variabili
 aliases: []
 tags:
-  - #programmazione #università #teoria #variabili
+  - "#programmazione"
+  - "#università"
+  - "#teoria"
+  - "#variabili"
+  - "#fondamenti_di_informatica"
 ---
 
 Una variabile è semplicemente un *contenitore di informazioni*.

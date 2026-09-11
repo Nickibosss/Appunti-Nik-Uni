@@ -2,7 +2,11 @@
 id: Puntatori
 aliases: []
 tags:
-  - #programmazione #teoria #università #roba_complicata
+  - "#programmazione"
+  - "#teoria"
+  - "#università"
+  - "#roba_complicata"
+  - "#fondamenti_di_informatica"
 ---
 
 Odio i puntatori odio i puntatori odio i puntatori

@@ -2,7 +2,10 @@
 id: Logica Booleana
 aliases: []
 tags:
-  - #programmazione #università #teoria
+  - "#programmazione"
+  - "#università"
+  - "#teoria"
+  - "#fondamenti_di_informatica"
 ---
 
 In generale i nostri *elaboratori* sono macchine che **compiono operazioni**.

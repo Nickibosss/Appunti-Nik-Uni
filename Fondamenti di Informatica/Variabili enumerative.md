@@ -2,7 +2,10 @@
 id: Variabili enumerative
 aliases: []
 tags:
-  - #università #programmazione #variabili
+  - "#università"
+  - "#programmazione"
+  - "#variabili"
+  - "#fondamenti_di_informatica"
 ---
 
 Può capitare nei nostri problemi che dobbiamo affrontare delle variabili che assumono un numero **finito** di valori. 

@@ -2,7 +2,10 @@
 id: Frasi di un linguaggio
 aliases: []
 tags:
-  - #teoria #programmazione #università
+  - "#teoria"
+  - "#programmazione"
+  - "#università"
+  - "#fondamenti_di_informatica"
 ---
 
 Tutti i linguaggi di programmazione hanno sintassi precisa, le frasi sono di quattro tipologie:

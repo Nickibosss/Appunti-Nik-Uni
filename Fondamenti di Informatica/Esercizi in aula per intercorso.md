@@ -2,7 +2,12 @@
 id: Esercizi in aula per intercorso
 aliases: []
 tags:
-  - #esercizi #codifica_e_rappresentazione #logica #programmazione #università
+  - "#esercizi"
+  - "#codifica_e_rappresentazione"
+  - "#logica"
+  - "#programmazione"
+  - "#università"
+  - "#fondamenti_di_informatica"
 ---
 
 

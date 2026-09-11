@@ -2,7 +2,11 @@
 id: Evoluzioni dal modello di Von Neumann
 aliases: []
 tags:
-  - #università #architettura #roba_complicata #teoria
+  - "#università"
+  - "#architettura"
+  - "#roba_complicata"
+  - "#teoria"
+  - "#fondamenti_di_informatica"
 ---
 
 Nella realtà ci sono una serie di ottimizzazioni che vengono fatte dal modello:

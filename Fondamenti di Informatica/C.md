@@ -2,7 +2,9 @@
 id: C
 aliases: []
 tags:
-  - #teoria #università
+  - "#teoria"
+  - "#università"
+  - "#fondamenti_di_informatica"
 ---
 
 è stato introdotto negli anni sessanta da [[Dennis Richie]].
