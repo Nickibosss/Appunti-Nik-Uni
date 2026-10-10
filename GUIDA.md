@@ -1,29 +1,74 @@
 <div align="center">
-<h1>🛠️ Guida locale 🧰</h1>
+<h1>🛠️ Guida al repo 🧰</h1>
 
-<h5>*Editing, compilazione PDF e push degli appunti.*</h5>
+<h5>*Come si lavora qui dentro: editing, compilazione PDF, pull request.*</h5>
 
 [![bash](https://img.shields.io/badge/bash-%234EAA25.svg?style=for-the-badge&logo=gnu-bash&logoColor=white)](https://www.gnu.org/software/bash/)  [![pandoc](https://img.shields.io/badge/pandoc-%23000000.svg?style=for-the-badge&logo=pandoc&logoColor=white)](https://pandoc.org)  [![LaTeX](https://img.shields.io/badge/LaTeX-%23008080.svg?style=for-the-badge&logo=latex&logoColor=white)](https://www.latex-project.org)  [![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)](https://git-scm.com)
 
 </div>
 
 > [!NOTE]
-> Questa è la guida per **chi lavora sugli appunti** (io e chi contribuisce). Se ti serve solo *leggerli*, vai sul [README](README.md). 🙂
+> Questa guida è per **chiunque tocchi questo repo**: contributor, collaboratori, e me. Se ti serve solo *leggere* gli appunti, guarda il [README](README.md). 🙂
 
 ## 🌿 I due branch: la cosa più importante
-Il repo ha due branch e hanno due lavori diversi.
+Il repo ha due branch con due lavori diversi.
 
 | Branch | A cosa serve | Cosa contengono i `.md` |
 |---|---|---|
-| **`main`** | ✍️ lavoro quotidiano, scrittura e correzioni | markdown "naturale" per Obsidian: callout, diagrammi `mermaid`, embed `![[...]]` |
-| **`production`** | 📦 rilascio e generazione PDF | gli **stessi appunti** adattati a LaTeX: `mermaid` → TikZ, embed rimossi, sintassi che compila |
+| **`main`** | ✍️ scrittura e correzione quotidiana | markdown "naturale" per Obsidian: callout, diagrammi `mermaid`, embed `![[...]]` |
+| **`production`** | 📦 da qui si generano i PDF | gli **stessi appunti** adattati a LaTeX: niente `mermaid`, niente embed, sintassi che compila |
 
 > [!IMPORTANT]
-> **Regola d'oro:** si scrive su `main`, si pubblica da `production`.
-> `production` non è un branch "vecchio": è la copia dei tuoi appunti resa compilabile. Se pushi su `main` e non aggiorni `production`, i PDF della release non contengono le tue modifiche.
+> **Regola d'oro:** gli appunti si scrivono su `main`. `production` non è un branch "vecchio" o di backup: è la copia degli appunti resa compilabile. Se una modifica finisce solo su `main`, nei PDF non c'è.
 
-## 🧰 Step 0 - Prerequisiti (una volta sola)
-Per compilare in locale servono **pandoc**, **lualatex** e **zip**.
+## 🔀 Il flusso di lavoro, in ordine
+```
+1. appunti "sporchi" su main              (markdown Obsidian)
+2. merge main -> production
+3. su production adatti i .md a LaTeX     (via callout, via embed, mermaid -> TikZ)
+4. verifichi la compilazione e correggi   finché ./createPdf.sh esce 0
+5. release -> la workflow genera i PDF
+```
+
+> [!WARNING]
+> I passi **2, 3, 4 e 5** sono roba da **mantenitore**: al momento è uno solo (Nik). Se contribuisci, il tuo lavoro finisce al passo **1 + pull request**. 🙋
+
+## 🙋 Step 1 - Come si manda una modifica: sempre via pull request
+**Non si pusha mai direttamente su `main` o `production`.** Ogni modifica passa da un branch tuo e una pull request.
+
+```bash
+git checkout main
+git pull origin main
+
+git checkout -b appunti/teorema-degli-zeri     # branch tuo, nome parlante
+
+# ... scrivi / sistemi i .md ...
+
+git add "Analisi 1/Teorema degli zeri.md"
+git commit -m "Aggiunto teorema degli zeri con esempio"
+git push origin appunti/teorema-degli-zeri
+```
+
+Dopo il push apri la **pull request** su Forgejo:
+- **source:** il tuo branch (`appunti/teorema-degli-zeri`)
+- **target:** `main` (il caso normale: contenuto di appunti)
+- se non hai accesso in scrittura sul repo: prima fai **fork**, poi la PR dal tuo fork
+
+Nella descrizione della PR scrivi in due righe: quali file hai toccato, cosa hai aggiunto/corretto, e se hai lanciato `./createPdf.sh` in locale (con l'esito).
+
+### Su cosa punta la PR 🎯
+
+| Che tipo di modifica è | Target della PR |
+|---|---|
+| appunti nuovi, correzioni di contenuto, spiegazioni, errori di trascrizione | **`main`** (quasi sempre) |
+| solo sistemazioni per far compilare: `mermaid` → TikZ, embed tolti, `$$` rotte, caratteri da escapare | **`production`** |
+
+> [!IMPORTANT]
+> **La traduzione `main` → `production` non si fa dentro la PR dei contenuti.** Su `main` si scrive markdown naturale e basta: dopo il merge, l'adattamento LaTeX se lo vede il mantenitore. Una PR che porta già la "versione prod" di una nota rende solo più difficile leggere il diff. 🙅
+> Se invece la PR serve *solo* a sistemare la compilazione, allora sì: branch da `production` e PR verso `production`.
+
+## 🧰 Step 2 - Prerequisiti per compilare in locale (una volta sola)
+Servono **pandoc**, **lualatex** e **zip**.
 
 ##### 🐧 Debian / Ubuntu
 ```bash
@@ -49,26 +94,17 @@ zip -v | head -1
 ```
 
 > [!WARNING]
-> In locale e in CI possono esserci **versioni diverse di pandoc** (es. 3.11 in locale, 3.1.13 nella workflow). Non è un problema, ma un flag può cambiare: `--highlight-style` è deprecato dalle pandoc recenti e dà solo un warning.
+> In locale e nella workflow possono esserci **versioni diverse di pandoc** (es. 3.11 in locale, 3.1.13 in CI). Non è un problema, ma qualche flag cambia: `--highlight-style` nelle pandoc recenti è deprecato e stampa solo un warning.
 
-## ✍️ Step 1 - Mettersi sul branch giusto
-```bash
-cd <cartella degli appunti>
-git checkout main
-git pull origin main
-```
+## ✍️ Step 3 - Scrivere gli appunti
+Lavora sui `.md` dentro la cartella della materia, con Obsidian (o l'editor che preferisci).
 
-> [!NOTE]
-> `git status` deve dirti "nothing to commit" prima di iniziare. Se hai modifiche in sospeso del lavoro precedente, committale prima di tirare giù.
-
-## 📝 Step 2 - Scrivere o sistemare gli appunti
-Apri Obsidian (o l'editor che preferisci) e lavora sui file `.md` dentro la cartella della materia.
-
-- Una cartella = una materia → il nome della cartella finisce nell'**intestazione del PDF** (a sinistra) e il nome del file a destra. 📄
-- Un file `.md` = un PDF. Il nome del file diventa il nome del PDF, quindi **nomi sensati = PDF capibili**.
+- Una cartella = una materia → il nome della cartella finisce nell'**intestazione del PDF** a sinistra, il nome del file a destra. 📄
+- Un file `.md` = un PDF, e il nome del file diventa il nome del PDF: **nomi sensati = PDF capibili**.
 - `README.md` e `GUIDA.md` **non** vengono compilati.
+- Il blocco YAML in testa ai file (`id`, `aliases`, `tags`) è roba da Obsidian: pandoc lo legge come metadati e **non lo stampa nel PDF**, quindi puoi usarlo tranquillamente.
 
-### Sintassi che funziona bene 🎯
+### Sintassi che rende bene 🎯
 ```markdown
 >[!esercizio] Titolo del blocco
 >Contenuto del callout.
@@ -81,12 +117,12 @@ b = 2
 $$
 ```
 
-- I callout `>[!tipo]` diventano box colorati (i tipi non standard come `[!esercizio]` funzionano lo stesso).
+- I callout `>[!tipo]` diventano box colorati (anche tipi non standard come `[!esercizio]`).
 - Le `$$` vanno **da sole sulla riga** e sempre **in coppia**.
 - Il codice dentro i blocchi di codice viene reso con **wrap automatico** (niente righe tagliate).
 
-## 🖨️ Step 3 - Compilare i PDF in locale
-Dalla **root del repo** (dove c'è `header.tex`):
+## 🖨️ Step 4 - Compilare i PDF in locale
+Dalla **root del repo** (la cartella dove c'è `header.tex`):
 
 ```bash
 ./createPdf.sh
@@ -103,52 +139,47 @@ pdf/
 │   └── ...
 ```
 
-Poi, se ti servono gli archivi:
+Se ti servono anche gli archivi:
 ```bash
-./zipFolders.sh
+./zipFolders.sh      # un .zip per cartella: "Fisica 1_PDF.zip", "Fisica 1_Markdown.zip", ...
 ```
-che produce un `.zip` per cartella (`Fisica 1_PDF.zip`, `Fisica 1_Markdown.zip`, ...).
 
-### Cosa devi guardare alla fine 🧐
-Lo script chiude con un riepilogo:
+### Cosa guardare alla fine 🧐
 ```
 Generazione completata: 91 PDF ok, 0 falliti. File messi in /pdf.
 ```
-e puoi sempre controllare il codice di uscita:
 ```bash
 echo $?     # 0 = tutto ok, 1 = almeno un file è fallito
 ```
 
 > [!TIP]
-> Se qualche file fallisce, lo script stampa il nome del file e le ultime righe del log LaTeX. **Non ignorarlo**: un file che non compila oggi, in CI fa fallire la release intera.
+> Se un file fallisce, lo script stampa il nome e le ultime righe del log LaTeX. **Non ignorarlo**: una nota che non compila in locale fa fallire anche la workflow.
 
 > [!NOTE]
-> I file temporanei (`temp.md`, `meta.tex`) non finiscono più nel vault: vivono in una cartella temporanea creata con `mktemp` e vengono cancellati automaticamente, anche se interrompi con `Ctrl+C`. La cartella `pdf/` è in `.gitignore`, quindi **non viene pushata**. 🧼
+> I file temporanei (`temp.md`, `meta.tex`) non finiscono nel vault: vivono in una cartella creata con `mktemp` e vengono cancellati da soli, anche se interrompi con `Ctrl+C`. La cartella `pdf/` è in `.gitignore`, quindi **non viene committata né pushata**. 🧼
 
 ## ☠️ Cosa rompe la compilazione
-Elenco di cose che fanno fallire un PDF:
+Queste cose fanno **fallire** il PDF:
 
-| Problema | Come si manifesta | Fix |
+| Problema | Errore tipico | Fix |
 |---|---|---|
-| `$$` spaiato o con testo sulla stessa riga | `! Undefined control sequence. l.NN \$\$...` | chiudi le `$$` in coppia e mettile da sole sulla riga |
-| Caratteri LaTeX speciali nel testo: `% & # _ $ { } ^ ~ \` | errori strani, testo sparito | escaparli: `\%` `\&` `\#` `\_` `\{` |
-| Blocchi `mermaid` | diagramma assente o errore | converti in TikZ (vedi Step 4) |
-| Embed `![[file.c]]` / `![[immagine.png]]` | contenuto mancante in silenzio | incolla il codice nel blocco, o rimuovi l'embed su `production` |
+| `$$` spaiati, o testo sulla stessa riga delle `$$` | `! Undefined control sequence. l.NN ...` | chiudi le `$$` in coppia e mettile da sole sulla riga |
+| Caratteri LaTeX nel testo: `% & # _ $ { } ^ ~ \` | errori strani, testo sparito | escapali: `\%` `\&` `\#` `\_` `\{` |
 | Comandi LaTeX inventati (`\nonexistentmacro`) | `! Undefined control sequence` | usa solo ambienti e comandi dei pacchetti caricati da `header.tex` |
-| File `.md` vuoto | PDF da 0 byte | lo script lo segnala come fallito |
+| Nome del file con `& % # _ $ { }` | si rompe l'intestazione del PDF | rinomina il file |
+| File `.md` vuoto | PDF da 0 byte | lo script lo segnala (o lo salta se proprio vuoto) |
 
-## 🔀 Step 4 - Portare le modifiche su `production`
-```bash
-git checkout main
-git add .
-git commit -m "Aggiunto teorema degli zeri"
-git push origin main
+Queste invece **compilano ma producono un PDF brutto/monco**:
 
-git checkout production
-git merge main
-```
+| Costrutto | Cosa succede nel PDF | Cosa fare |
+|---|---|---|
+| Embed `![[file.c]]` / `![[immagine.png]]` | pandoc non trova la risorsa e la sostituisce con il testo alternativo: contenuto **perso in silenzio** | incolla il contenuto in un blocco di codice, o togli l'embed |
+| Blocchi ` ```mermaid ` | il sorgente mermaid finisce nel PDF come blocco di codice | converti in TikZ (vedi sotto) |
+| Callout foldable `>[!note]-` | il `-` resta nel testo | su `production` togli il `-` o il callout |
 
-A questo punto `production` ha i file *sporchi* di sintassi Obsidian: vanno adattati a LaTeX. Di solito sono **due operazioni ripetitive**:
+## 🔧 Step 5 - Adattare i file su `production`
+
+Questo lavoro **non sta nelle PR di contenuto**: dopo il merge su `main`, il mantenitore apre un branch suo e fa la traduzione `main` → `production` (oppure, se deve solo sistemare la compilazione, parte direttamente da `production`).
 
 ##### 1. `mermaid` → TikZ
 Su `main`:
@@ -158,7 +189,7 @@ A[prima] --> B{if}
 B -- TRUE --> C[blocco if]
 B --> D
 ```
-*(ovviamente dentro un blocco ` ```mermaid ` su main)*
+*(dentro un blocco ` ```mermaid `)*
 
 Su `production`:
 ```latex
@@ -181,43 +212,31 @@ Su `production`:
 > Gli stili `terminal`, `process`, `decision` e `arrow` sono **già definiti** in `header.tex`: non devi ridefinirli. Le librerie TikZ caricate sono `positioning`, `shapes.geometric`, `arrows.meta`.
 
 ##### 2. Togliere gli embed `![[...]]`
-Su `production` gli embed Obsidian non vengono risolti: o il contenuto lo scrivi direttamente in un blocco di codice, o lo togli.
+Su `production` non vengono risolti: o il contenuto lo scrivi direttamente in un blocco di codice, o lo togli.
 
-##### 3. Ricompilare su `production`
-```bash
-./createPdf.sh
-echo $?
-```
-**Questo è il test vero:** se qui esce `1`, la release fallirà.
-
-## 🚀 Step 5 - Push finale
-```bash
-git add .
-git commit -m "Adattati appunti a LaTeX per produzione"
-git push origin production
-```
+##### 3. Callout
+Il marcatore `>[!tipo]` viene **rimosso in automatico** da `createPdf.sh`, che trasforma il callout in una citazione (e `header.tex` la rende un box). Quindi un callout semplice su `production` può restare: si toglie a mano quando dentro c'è roba Obsidian-specifica (foldable `>-`, callout annidati, embed dentro il callout).
 
 > [!NOTE]
-> Se durante il merge ci sono conflitti su un `.md` che su `production` aveva già le modifiche LaTeX, **non risolvere cieco con `--theirs` o `--ours`**: risolvi a mano e poi ricompila.
+> Residui ancora presenti su `production`, da ripulire alla prima occasione: `![[...]]` in `Fondamenti di Informatica/C.md`, `Liste a puntatori.md`, `Tipi di dato strutturati.md`, e un blocco `mermaid` in `Fisica 1/Cosa è la Fisica?.md`.
 
-## 📦 Step 6 - Release (e PDF automatici)
-La workflow `.forgejo/workflows/pdf-convert.yaml` parte quando:
-- pubblichi una **release**, oppure
-- la lanci a mano con **Run workflow** (`workflow_dispatch`).
+## 🧪 Step 6 - Verifica della compilazione
+Su `production`, dopo le modifiche:
+```bash
+./createPdf.sh
+echo $?      # deve essere 0
+```
+**Questo è il test vero:** se esce `1`, la release genererà PDF mancanti o una workflow rossa.
 
-Per pubblicare:
-1. Su Forgejo vai in **Releases → New release**.
-2. Target branch: **`production`** ⚠️ (se la punti su `main`, i PDF escono con i `mermaid` e gli embed rotti).
-3. Tag nuovo, tipo `Beta-4`.
-4. Pubblica → la workflow installa pandoc + texlive, lancia `./createPdf.sh` e `./zipFolders.sh` e allega i `.zip` alla release.
+Se qualcosa non compila, correggi e rilancia. Quando tutto esce `0`, apri la PR del branch di adattamento verso `production`, mergeala e si procede con la release.
 
 > [!WARNING]
-> Dopo il refactoring degli script, **la workflow fallisce davvero** se anche una sola nota non compila (prima finiva comunque "in verde" e pubblicava zip incompleti). Se una release è rossa, il problema è un `.md`, non la workflow.
+> Dopo il refactoring degli script, **la workflow fallisce davvero** se anche una sola nota non compila (prima finiva "in verde" e pubblicava zip incompleti). Se una workflow è rossa, il problema è un `.md`, non la workflow.
 
 ## 🧯 Troubleshooting
 
 ##### "Errore compilazione: NomeNota"
-Il numero `l.NN` del log è la riga del `.tex` generato, **non** del tuo `.md`. Per vedere il punto esatto:
+Il numero `l.NN` nel log è la riga del `.tex` **generato**, non del tuo `.md`. Per vedere il punto esatto:
 ```bash
 pandoc "CartellaMateria/NomeNota.md" \
   -f markdown+wikilinks_title_after_pipe+hard_line_breaks \
@@ -230,23 +249,43 @@ sed -n '130,150p' /tmp/nota.tex
 Stai lanciando lo script da una cartella che non è la root del repo. `cd` nella cartella degli appunti e riprova.
 
 ##### "Errore: pandoc non risulta installato"
-Torna allo Step 0 (lo script controlla `pandoc` e `lualatex` prima di partire).
+Torna allo Step 2 (lo script controlla `pandoc` e `lualatex` prima di partire).
 
 ##### "Errore: La cartella /pdf non esiste"
 `zipFolders.sh` va eseguito **dopo** `createPdf.sh`.
 
 ##### I PDF sono lentissimi
-Normale: lualatex mette ~3-4 secondi per nota, quindi una build completa sono alcuni minuti. Rilancia solo quando serve. 🐢
+Normale: lualatex mette ~3-4 secondi per nota, una build completa sono alcuni minuti. Rilancia solo quando serve. 🐢
 
-## ✅ Checklist rapida
+## ✅ Checklist
+
+##### Se contribuisci 🙋
 ```
-[ ] git checkout main && git pull
-[ ] scrivo/sistemo i .md in Obsidian
+[ ] branch nuovo da main          git checkout -b appunti/...
+[ ] scrivo/sistemo i .md
 [ ] ./createPdf.sh  ->  echo $?  == 0
-[ ] commit + push su main
+[ ] commit con messaggio chiaro
+[ ] push del branch + pull request verso main
+[ ] non traduco niente in LaTeX per production: lo fa il mantenitore
+```
+
+##### Se sei il mantenitore 🔑
+
+*PR di contenuto* (appunti nuovi o correzioni):
+```
+[ ] merge della PR su main
 [ ] git checkout production && git merge main
-[ ] mermaid -> TikZ, tolgo embed ![[...]]
+[ ] mermaid -> TikZ, tolgo embed, sistemo callout
 [ ] ./createPdf.sh su production  ->  echo $?  == 0
-[ ] commit + push su production
-[ ] release con target production
+[ ] PR del branch di adattamento -> production, merge
+[ ] release (i PDF li genera la workflow)
+```
+
+*PR solo di produzione* (fix di compilazione, nessun contenuto nuovo):
+```
+[ ] branch creato da production
+[ ] sistemo LaTeX e ./createPdf.sh  ->  echo $?  == 0
+[ ] PR -> production, merge
+[ ] se la correzione serve anche su main, PR separata su main
+[ ] release
 ```
