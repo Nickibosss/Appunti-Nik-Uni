@@ -2,7 +2,10 @@
 id: Progettazione e modularità
 aliases: []
 tags:
-  - #università #programmazione #teoria
+  - "#università"
+  - "#programmazione"
+  - "#teoria"
+  - "#fondamenti_di_informatica"
 ---
 
 Per andare a progettare un *algoritmo* devo innanzitutto andare a **scomporre** il problema che voglio affrontare, in maniera anche opportunatamente iterativa.

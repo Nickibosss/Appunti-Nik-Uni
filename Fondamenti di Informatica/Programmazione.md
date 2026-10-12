@@ -2,7 +2,10 @@
 id: Programmazione
 aliases: []
 tags:
-  - #teoria #programmazione #università
+  - "#teoria"
+  - "#programmazione"
+  - "#università"
+  - "#fondamenti_di_informatica"
 ---
 
 Programmare significa scrivere in uno specifico linguaggio di programmazione un algoritmo capace di risolvere un problema

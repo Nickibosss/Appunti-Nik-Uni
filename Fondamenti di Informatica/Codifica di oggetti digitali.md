@@ -2,7 +2,10 @@
 id: Codifica di oggetti digitali
 aliases: []
 tags:
-  - #codifica_e_rappresentazione #università #teoria
+  - "#codifica_e_rappresentazione"
+  - "#università"
+  - "#teoria"
+  - "#fondamenti_di_informatica"
 ---
 
 Sia per quanto riguarda **immagini o video**, sia per **suoni**, dobbiamo codificare un segnale *analogico* in maniera *discreta*.

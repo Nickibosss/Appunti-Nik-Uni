@@ -2,7 +2,10 @@
 id: Strutture di controllo
 aliases: []
 tags:
-  - #università #programmazione #teoria
+  - "#università"
+  - "#programmazione"
+  - "#teoria"
+  - "#fondamenti_di_informatica"
 ---
 
 Abbiamo a che fare con *paradigmi* che definiscono i modelli adottati da un certo linguaggio di programmazione.

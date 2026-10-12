@@ -1,0 +1,20 @@
+# Artefatti di build degli script PDF
+/pdf/
+
+# Temporanei (non dovrebbero piu' essere creati qui, ma per sicurezza)
+temp.md
+meta.tex
+
+# Artefatti LaTeX
+*.aux
+*.log
+*.toc
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.bbl
+*.blg
+
+# OS
+.DS_Store

@@ -1,3 +1,10 @@
+---
+id: Gestione dei file
+aliases: []
+tags:
+  - "#fondamenti_di_informatica"
+---
+
 Fino ad oggi abbiamo scritto programmi che si interfacciano dal mondo esterno solo *da tastiera*, ma in questo caso ad ogni esecuzione il programma parte **da capo**. (L'allocazione di cui abbiamo parlato *non è persistente*).
 
 Per memorizzare le informazioni in maniera persistente quindi non possiamo usare la *memoria centrale*, ma dobbiamo fare utilizzo della **memoria di massa**, che è gestita dal sistema operativo con il *file system*. 

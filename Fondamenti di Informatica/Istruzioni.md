@@ -2,7 +2,11 @@
 id: Istruzioni
 aliases: []
 tags:
-  - #università #architettura #teoria #roba_complicata
+  - "#università"
+  - "#architettura"
+  - "#teoria"
+  - "#roba_complicata"
+  - "#fondamenti_di_informatica"
 ---
 
 Una istruzione *di basso livello* è una operazione semplice messa a disposizione dalla CPU.
