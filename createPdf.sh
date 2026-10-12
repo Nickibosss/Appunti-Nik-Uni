@@ -114,8 +114,8 @@ while IFS= read -r -d '' file; do
   fi
 
   ok=$((ok + 1))
-# README.md e GUIDA.md sono documentazione, non appunti: niente PDF per loro.
-done < <(find . -type f -name "*.md" ! -name "README.md" ! -name "GUIDA.md" -not -path "*/.*" -not -path "./${OUTPUT_DIR}/*" -print0 | sort -z)
+# README.md, GUIDA.md e AGENTS.md sono documentazione, non appunti: niente PDF per loro.
+done < <(find . -type f -name "*.md" ! -name "README.md" ! -name "GUIDA.md" ! -name "AGENTS.md" -not -path "*/.*" -not -path "./${OUTPUT_DIR}/*" -print0 | sort -z)
 
 echo ""
 echo -e "${GREEN}Generazione completata:${NC} ${ok} PDF ok, ${fail} falliti. File messi in ${YELLOW}/${OUTPUT_DIR}${NC}."

@@ -101,7 +101,7 @@ Lavora sui `.md` dentro la cartella della materia, con Obsidian (o l'editor che 
 
 - Una cartella = una materia → il nome della cartella finisce nell'**intestazione del PDF** a sinistra, il nome del file a destra. 📄
 - Un file `.md` = un PDF, e il nome del file diventa il nome del PDF: **nomi sensati = PDF capibili**.
-- `README.md` e `GUIDA.md` **non** vengono compilati.
+- `README.md`, `GUIDA.md` e `AGENTS.md` **non** vengono compilati.
 - Il blocco YAML in testa ai file (`id`, `aliases`, `tags`) è roba da Obsidian: pandoc lo legge come metadati e **non lo stampa nel PDF**, quindi puoi usarlo tranquillamente.
 
 ### Sintassi che rende bene 🎯
@@ -263,7 +263,7 @@ Normale: lualatex mette ~3-4 secondi per nota, una build completa sono alcuni mi
 ```
 [ ] branch nuovo da main          git checkout -b appunti/...
 [ ] scrivo/sistemo i .md
-[ ] ./createPdf.sh  ->  echo $?  == 0
+[ ] ./createPdf.sh  ->  informativo: su main non serve exit 0, il gate e' su production
 [ ] commit con messaggio chiaro
 [ ] push del branch + pull request verso main
 [ ] non traduco niente in LaTeX per production: lo fa il mantenitore
