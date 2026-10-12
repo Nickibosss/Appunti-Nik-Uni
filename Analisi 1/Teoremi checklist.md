@@ -5,7 +5,7 @@
         - [ ] 113 [[Assioma di completezza (Dedekind)]]
     - [ ] 120 [[Proprietà derivate]]
         - [ ] 121 [[Proprietà di Archimede]]
-        - [ ] 122 [[Proposizione sulla non esistenza di un razionale c tale che c^2 =2]]
+        - [ ] 122 [[Proposizione sulla non esistenza di un razionale $c$ tale che $c^2 = 2$]]
         - [ ] 123 [[Proprietà di densità di Q in R]]
         - [ ] 124 [[Teorema di esistenza dell'estremo superiore e inferiore]]
 - [ ] 200 [[Teoria delle Successioni Numeriche]]
