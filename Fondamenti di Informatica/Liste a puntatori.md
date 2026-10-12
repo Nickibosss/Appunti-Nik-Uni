@@ -1,4 +1,6 @@
 ---
+id: Liste a puntatori
+aliases: []
 tags:
   - "#lista"
   - "#puntatori"
