@@ -19,13 +19,15 @@ When a note fails on `production`, fix it in the least destructive order: a `hea
 ## Verification
 
 - Full build, from the repo root (the folder that holds `header.tex`): `./createPdf.sh` then `echo $?` — `0` all notes compiled, `1` at least one failed. Takes minutes (lualatex is ~3-4s per note).
-- Fast single-note check. It needs the two header macros or it dies with `! Undefined control sequence`:
+- Fast single-note check. It needs the two header macros: without them pandoc exits **43** with `Error producing PDF.` / `! Undefined control sequence.` — a different exit code from the `1` that `createPdf.sh` returns.
 
   ```bash
   printf '\\newcommand{\\headerTitolo}{Legge oraria}\n\\newcommand{\\headerMateria}{Fisica 1}\n' > /tmp/m.tex
   pandoc - -f markdown+wikilinks_title_after_pipe+hard_line_breaks --pdf-engine=lualatex \
     -V lang=it-IT -H /tmp/m.tex -H header.tex -o /tmp/nota.pdf < "Fisica 1/Legge oraria.md"
   ```
+
+  This bypasses `createPdf.sh`'s preprocessing, so the `$$` pairing gate and the callout stripping do **not** run: use it to read a LaTeX error quickly, not to declare a note compilable.
 
 - `./zipFolders.sh` only **after** `createPdf.sh` (it errors if `pdf/` is missing).
 - CI (`.forgejo/workflows/pdf-convert.yaml`) triggers only on `release: published` and `workflow_dispatch`. It never validates a push or a PR — the local build is the test.
@@ -66,18 +68,21 @@ tags:
 - **`$$` must be paired and alone on its line, and `createPdf.sh` enforces it.** Outside code fences a `$$` must be the only thing on its line (blockquote markers allowed) and the total count must be even; otherwise the note is counted as failed with `Errore $$: <nota> (spaiati)` or `(incollati al testo (riga N))`. pandoc never reports either case: both exit `0` and produce a silently unreadable PDF — `$$Ciao mondo$$` renders prose as math italic with every space removed, and a dangling `$$` prints a literal `$$`. Fix: `$$` alone on its own line, always in pairs.
 - **Inside `$…$` and `$$…$$` pandoc escapes nothing.** `&` -> `! Misplaced alignment tab character &` (legal only inside `align` / `aligned`); `#` -> `! You can't use macro parameter character #' in math mode`. Write `\&` and `\#` there.
 - **`\[ … \]` is not math for pandoc.** It becomes literal `[ … ]`: harmless with plain text, `! Missing $ inserted` as soon as the content holds math commands (`\int`, `\frac`, `^`). Use `$$…$$` or a raw `\begin{…}\end{…}` environment.
-- **Body text is auto-escaped.** `% & # _ { } ^ ~` in prose are handled by pandoc — do not pre-escape them. What bites is markdown line-start syntax: `%` at the start of a line deletes the whole line, `#` at the start becomes a heading, `_x_` emphasis, `~~x~~` strikethrough.
+- **Body text is auto-escaped.** `% & # _ { } ^ ~` in prose are handled by pandoc — do not pre-escape them. A `%` or a `#` at the start of a line survives into the PDF as literal text, and `#tag` in body text is safe: `#` becomes a heading only when a space follows it. Underscores inside a word (`linked_list.c`) stay literal. `~x~` / `~~x~~` is strikethrough markup — the tildes are formatting, not content.
 - **Filenames.** The name is pasted into `\newcommand{\headerTitolo}{...}`, so these characters in a name break the build: `& % # _ { } ^` and a lone `$` (verified: `! Misplaced alignment tab character &`, `! File ended while scanning use of \@argdef`, `! Illegal parameter number in definition of \headerTitolo`, `! Missing $ inserted` — the last one reported at `\end{document}`). Paired `$…$` in a name does compile, but there is no reason to use it. Safe: letters, digits, spaces, `( ) , . ' - ~` and accents. Separately, `main` names must be Obsidian-legal: Obsidian forbids `# ^ [ ] |` (and `/ \ :`) in note names, and that constraint is stricter than the build. A rename silently breaks every `[[...]]` link pointing at the note: grep for those links, ask first, and rename on **both** branches so later `main` -> `production` merges do not keep re-creating a rename conflict.
 - Malformed YAML frontmatter -> pandoc `Error parsing YAML metadata`, exit 64, note counted as failed.
-- Invented macros -> `! Undefined control sequence`. `\usepackage` in a note body -> `! LaTeX Error: Can be used only in preamble`. An empty `.md` is skipped; a 0-byte PDF counts as a failure.
+- Invented macros -> `! Undefined control sequence`. `\usepackage` in a note body -> `! LaTeX Error: Can be used only in preamble`. A `.md` that is empty after preprocessing is skipped (`Salto: <nota> (file vuoto)`) and not counted. A note whose entire body is frontmatter compiles to a 0-byte PDF and is counted as **failed**: `PDF vuoto generato: <nota>`, script exits 1.
 
 ## What compiles but silently loses content
 
-- `%` at the start of a line: pandoc treats the line as a comment and **deletes it**. Inside a blockquote (`> %`) it is fine.
-- A bare `%` inside math: LaTeX reads it as a comment and eats the rest of the line, closing `$` included. `$p=50%$` renders as `𝑝 = 50`. Write `\%`.
-- `![[file.c]]` / `![[image.png]]`: pandoc cannot resolve the resource and substitutes alt text. C examples live in `Fondamenti di Informatica/Esempi in C/`; inline them in a code fence on `production`.
+- A bare `%` inside math: LaTeX reads it as a comment and eats the rest of the line, closing `$` included. `$p=50%$` renders as `𝑝 = 50`. In a `$$…$$` block it also swallows the line break: `p = 50%` followed by `q = 2` comes out as one run-together line. Write `\%`.
+- `%%commento%%` is an Obsidian comment, not a pandoc one: it renders **literally**, so a hidden note becomes visible in the PDF. Same for a `%%` block on its own lines.
+- `==evidenziato==` (Obsidian highlight) renders literally, `==` included. Nothing in the vault uses it yet — `==` appears only as `==>` in headings and inside code fences, where it is harmless.
+- `[[Nota con|alias]]` keeps only the alias: the target note name disappears from the PDF.
+- `Testo[^rif]` with no matching `[^rif]:` definition renders literally as `[^rif]`.
+- `![[file.c]]` / `![[image.png]]`: pandoc cannot resolve the resource and substitutes alt text — `>![[if1.c]]` becomes the bare word `if1.c`. C examples live in `Fondamenti di Informatica/Esempi in C/`; inline them in a code fence on `production`. A standard `![alt](fig.png)` with a missing file behaves the same and additionally emits a `Figura N:` caption.
 - ` ```mermaid ` blocks emit the source as a code block. Convert to TikZ on `production` using the `terminal`, `process`, `decision`, `arrow` styles already defined in `header.tex`.
-- `>[!type]` callout markers are stripped by `sed` in `createPdf.sh`, so the callout becomes a blockquote that `header.tex` renders as a colored box — the type/label is lost, and foldable `>[!note]-` leaves a stray `-`.
+- **Callout markers are stripped by `sed` in `createPdf.sh`** with the regex `> ?\[![a-zA-Z0-9_-]+\]`, so a callout becomes a blockquote that `header.tex` renders as a colored box — the type/label is always lost. The type must match that regex or it is not stripped at all: `> [!Esercizio 1]` and `> [!Approfondimento 📌]` (space, emoji, punctuation) leak the raw `[!Tipo]` into the PDF. A foldable `> [!nota]-` leaves a `-` that pandoc turns into a bullet (`• contenuto`). A nested `>> [!esempio]` collapses to a stray `>` line and the inner box is gone. In short: free-form callout types work in Obsidian, but for the build they must be `[a-zA-Z0-9_-]` only — no spaces, no emoji, no nesting.
 - Emoji are dropped with `Missing character ... in font` warnings; the build still exits 0.
 
 ## Ask before changing what a note says
@@ -91,6 +96,6 @@ Mechanical fixes are safe to make on your own initiative: escaping LaTeX charact
 
 ## Conventions
 
-- Notes are Italian; keep them Italian (`-V lang=it-IT`). Callout types are free-form (`>[!esercizio]`, `>[!esempio]`, ...) and non-standard types work on `main`.
+- Notes are Italian; keep them Italian (`-V lang=it-IT`). Callout types are free-form (`>[!esercizio]`, `>[!esempio]`, ...) and non-standard types work on `main`, but only `[a-zA-Z0-9_-]` types survive the build (see the callout rule above).
 - Known LaTeX-hostile residue still on `production`: `![[...]]` in `Fondamenti di Informatica/C.md`, `Liste a puntatori.md`, `Tipi di dato strutturati.md`, and a `mermaid` block in `Fisica 1/Cosa è la Fisica?.md`.
 - `GUIDA.md` holds the full contributor/maintainer workflow and checklists (Italian). Where it disagrees with the scripts, trust the scripts.
