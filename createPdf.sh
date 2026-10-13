@@ -36,6 +36,32 @@ preprocess() {
     | cat -s
 }
 
+# --- controllo $$ : in coppia e da sole sulla riga -------------------------
+# pandoc NON segnala mai gli $$ spaiati o incollati al testo: esce 0 e produce
+# un PDF silenziosamente illeggibile (la prosa resa in matematica, con tutti
+# gli spazi cancellati). Li intercetta qui, cosi' una nota scritta male NON
+# conta come compilata e lo script esce 1.
+check_dollar() {
+  awk '
+    /^[ \t]*(```|~~~)/ { fence = !fence; next }
+    fence { next }
+    {
+      probe = $0
+      gsub(/^[ \t]*(>[ \t]*)+/, "", probe)   # marcatori di citazione/callout
+      n = gsub(/\$\$/, "", probe)            # conta le coppie e le rimuove
+      if (n == 0) next
+      total += n
+      gsub(/[ \t]/, "", probe)
+      if (probe != "" && glued == 0) glued = NR
+    }
+    END {
+      if (total % 2 != 0) { print "spaiati"; exit }
+      if (glued)          { print "incollati al testo (riga " glued ")"; exit }
+      print "ok"
+    }
+  ' "$1"
+}
+
 mkdir -p "$OUTPUT_DIR"
 
 echo ""
@@ -79,6 +105,16 @@ while IFS= read -r -d '' file; do
   # un file vuoto produrrebbe un PDF da 0 byte con exit code 0
   if [ ! -s "${TMP_BUILD}/temp.md" ]; then
     echo -e "${YELLOW}Salto:${NC} $filename (file vuoto)"
+    continue
+  fi
+
+  # $$ in coppia e da sole sulla riga: pandoc non le contesta, ma il PDF viene
+  # fuori illeggibile, quindi qui la nota e' considerata fallita
+  dollar_check=$(check_dollar "${TMP_BUILD}/temp.md")
+  if [ "$dollar_check" != "ok" ]; then
+    echo -e "${RED}Errore \$\$ :${NC} $filename ($dollar_check)" >&2
+    fail=$((fail + 1))
+    failed_names+=("$filename")
     continue
   fi
 
