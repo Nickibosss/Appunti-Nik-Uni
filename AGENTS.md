@@ -7,11 +7,12 @@ Obsidian markdown notes vault (university lectures, Italian). Not a software pro
 - `main`: notes in natural Obsidian markdown (callout, `mermaid`, `![[embeds]]`, wikilinks). All content work happens here.
 - `production`: the same notes adapted so they compile as LaTeX. Releases/tags (`Beta-*`) are cut **here**, so CI builds production's files.
 - Never push to either. Branch + PR: content PRs target `main`; PRs that only fix compilation branch from and target `production`. Do not pre-translate content PRs into LaTeX.
-- `production` lags `main`: it still carries the pre-refactor `createPdf.sh` (writes `temp.md` and `meta.tex` into the repo root, never exits non-zero, and its `find` does not exclude `./pdf/`, so a second run recompiles the `_Markdown` copies recursively) and has no `.gitignore`. Merge `main` -> `production` before relying on newer script behaviour.
+- `createPdf.sh`, `zipFolders.sh`, `header.tex` and `.gitignore` are **identical on both branches** — run `git diff main production --stat` instead of assuming. What differs is note content: `production` carries the LaTeX translations (TikZ instead of `mermaid`, embeds removed), `main` carries the Obsidian form. Pre-refactor script behaviour exists only in history (`12a0f7d`, tag `Beta-3`); if you ever find `temp.md` or `meta.tex` sitting in the repo root, you are on a stale branch.
+- `main` is a working Obsidian vault, not just a source tree: a note name Obsidian cannot open is a bug even when the PDF compiles.
 
 ## Where compilation actually matters
 
-`./createPdf.sh` must exit `0` on **`production`**: releases are cut there and the workflow publishes whatever compiles, so a failing note means a missing PDF in the release. On `main` a non-zero exit is **not** mandatory and not a blocker for a content PR — notes there are still in Obsidian form. Run the build on `main` to learn what will break later, not as a gate.
+`./createPdf.sh` must exit `0` on **`production`**: releases are cut there, and a non-zero exit fails the workflow step, so `zipFolders.sh` and the upload step never run — the release gets **no** PDFs and no zips and the run is red. It is not "one note missing from an otherwise fine release". On `main` a non-zero exit is **not** mandatory and not a blocker for a content PR — notes there are still in Obsidian form. Run the build on `main` to learn what will break later, not as a gate.
 
 When a note fails on `production`, fix it in the least destructive order: a `header.tex` definition -> a markdown syntax fix -> ask the maintainer before touching the note's content or renaming a file. Shared fixes in `header.tex` travel with the `main` -> `production` merge; edits to a single note do not help other notes.
 
@@ -35,7 +36,7 @@ When a note fails on `production`, fix it in the least destructive order: a `hea
 - pandoc input is `markdown+wikilinks_title_after_pipe+hard_line_breaks`: single newlines in the source become hard line breaks in the PDF. Reflowing or joining source lines changes PDF layout.
 - One folder = one subject; the folder name goes in the PDF header left, the file name goes header right and becomes the PDF's name. Root-level notes get subject `Appunti Generali`.
 - `README.md`, `GUIDA.md` and `AGENTS.md` are documentation and excluded from the build.
-- Notes have no `# H1`: the title lives in the PDF header, and notes open straight at `###` / `####` section headings (`Enunciato`, `Dimostrazione`, ...).
+- The note's title lives in the PDF header, not in the page body. Most notes open at `###` / `####` (`Enunciato`, `Dimostrazione`, ...); some use `##` and two use `# `. That is allowed — it just renders as a heading below the header.
 - Only what `header.tex` loads is available: `tcolorbox`, `xcolor`, `fancyhdr`, `fvextra`, `tikz` (`positioning`, `shapes.geometric`, `arrows.meta`). Notes cannot add packages. A macro the notes need but LaTeX lacks gets defined in `header.tex` with `\providecommand` — that is how `\degree` was fixed — rather than by rewriting the note.
 
 ## Frontmatter and tagging
@@ -62,14 +63,18 @@ tags:
 
 ## What makes the build fail
 
-- `$$` must be alone on its own line and paired; text on the same line -> `! Undefined control sequence`.
-- Unescaped `% & # _ $ { } ^ ~ \` in body text -> escape them.
-- The filename goes into `\newcommand{\headerTitolo}{...}`, so those same characters in a **filename** break the header (`! Missing $ inserted`, reported at `\end{document}`). Avoid them in new note names. An existing note that fails this way needs a rename, and a rename silently breaks every `[[...]]` link pointing at it — grep for those links and ask before renaming.
+- **`$$` must be paired and alone on its line, and `createPdf.sh` enforces it.** Outside code fences a `$$` must be the only thing on its line (blockquote markers allowed) and the total count must be even; otherwise the note is counted as failed with `Errore $$: <nota> (spaiati)` or `(incollati al testo (riga N))`. pandoc never reports either case: both exit `0` and produce a silently unreadable PDF — `$$Ciao mondo$$` renders prose as math italic with every space removed, and a dangling `$$` prints a literal `$$`. Fix: `$$` alone on its own line, always in pairs.
+- **Inside `$…$` and `$$…$$` pandoc escapes nothing.** `&` -> `! Misplaced alignment tab character &` (legal only inside `align` / `aligned`); `#` -> `! You can't use macro parameter character #' in math mode`. Write `\&` and `\#` there.
+- **`\[ … \]` is not math for pandoc.** It becomes literal `[ … ]`: harmless with plain text, `! Missing $ inserted` as soon as the content holds math commands (`\int`, `\frac`, `^`). Use `$$…$$` or a raw `\begin{…}\end{…}` environment.
+- **Body text is auto-escaped.** `% & # _ { } ^ ~` in prose are handled by pandoc — do not pre-escape them. What bites is markdown line-start syntax: `%` at the start of a line deletes the whole line, `#` at the start becomes a heading, `_x_` emphasis, `~~x~~` strikethrough.
+- **Filenames.** The name is pasted into `\newcommand{\headerTitolo}{...}`, so these characters in a name break the build: `& % # _ { } ^` and a lone `$` (verified: `! Misplaced alignment tab character &`, `! File ended while scanning use of \@argdef`, `! Illegal parameter number in definition of \headerTitolo`, `! Missing $ inserted` — the last one reported at `\end{document}`). Paired `$…$` in a name does compile, but there is no reason to use it. Safe: letters, digits, spaces, `( ) , . ' - ~` and accents. Separately, `main` names must be Obsidian-legal: Obsidian forbids `# ^ [ ] |` (and `/ \ :`) in note names, and that constraint is stricter than the build. A rename silently breaks every `[[...]]` link pointing at the note: grep for those links, ask first, and rename on **both** branches so later `main` -> `production` merges do not keep re-creating a rename conflict.
 - Malformed YAML frontmatter -> pandoc `Error parsing YAML metadata`, exit 64, note counted as failed.
-- Invented macros -> `! Undefined control sequence`. An empty `.md` is skipped; a 0-byte PDF counts as a failure.
+- Invented macros -> `! Undefined control sequence`. `\usepackage` in a note body -> `! LaTeX Error: Can be used only in preamble`. An empty `.md` is skipped; a 0-byte PDF counts as a failure.
 
 ## What compiles but silently loses content
 
+- `%` at the start of a line: pandoc treats the line as a comment and **deletes it**. Inside a blockquote (`> %`) it is fine.
+- A bare `%` inside math: LaTeX reads it as a comment and eats the rest of the line, closing `$` included. `$p=50%$` renders as `𝑝 = 50`. Write `\%`.
 - `![[file.c]]` / `![[image.png]]`: pandoc cannot resolve the resource and substitutes alt text. C examples live in `Fondamenti di Informatica/Esempi in C/`; inline them in a code fence on `production`.
 - ` ```mermaid ` blocks emit the source as a code block. Convert to TikZ on `production` using the `terminal`, `process`, `decision`, `arrow` styles already defined in `header.tex`.
 - `>[!type]` callout markers are stripped by `sed` in `createPdf.sh`, so the callout becomes a blockquote that `header.tex` renders as a colored box — the type/label is lost, and foldable `>[!note]-` leaves a stray `-`.
