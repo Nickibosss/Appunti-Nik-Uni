@@ -102,7 +102,8 @@ $$
 0+0=0 \\
 1\cdot1 = 1 \\
 \end{cases}
-$$Ho dimostrato l'uguaglianza.
+$$
+Ho dimostrato l'uguaglianza.
 La (2) vale per *dualità*.
 
 L'algebra di Boole è utile anche a modellare l'*algebra degli insiemi*.
