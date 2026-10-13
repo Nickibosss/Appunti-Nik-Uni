@@ -117,8 +117,8 @@ b = 2
 $$
 ```
 
-- I callout `>[!tipo]` diventano box colorati (anche tipi non standard come `[!esercizio]`).
-- Le `$$` vanno **da sole sulla riga** e sempre **in coppia**.
+- I callout `>[!tipo]` diventano box colorati, anche con tipi non standard come `[!esercizio]`. Il tipo però deve essere fatto **solo di lettere, numeri, `_` e `-`**: con spazi o emoji (`[!Esercizio 1]`, `[!Approfondimento 📌]`) il marcatore non viene tolto e resta stampato nel PDF.
+- Le `$$` vanno **da sole sulla riga** e sempre **in coppia**: non è un consiglio di stile, `./createPdf.sh` lo verifica e la nota viene contata come fallita.
 - Il codice dentro i blocchi di codice viene reso con **wrap automatico** (niente righe tagliate).
 
 ## 🖨️ Step 4 - Compilare i PDF in locale
@@ -146,7 +146,7 @@ Se ti servono anche gli archivi:
 
 ### Cosa guardare alla fine 🧐
 ```
-Generazione completata: 91 PDF ok, 0 falliti. File messi in /pdf.
+Generazione completata: 86 PDF ok, 0 falliti. File messi in /pdf.
 ```
 ```bash
 echo $?     # 0 = tutto ok, 1 = almeno un file è fallito
@@ -163,11 +163,16 @@ Queste cose fanno **fallire** il PDF:
 
 | Problema | Errore tipico | Fix |
 |---|---|---|
-| `$$` spaiati, o testo sulla stessa riga delle `$$` | `! Undefined control sequence. l.NN ...` | chiudi le `$$` in coppia e mettile da sole sulla riga |
-| Caratteri LaTeX nel testo: `% & # _ $ { } ^ ~ \` | errori strani, testo sparito | escapali: `\%` `\&` `\#` `\_` `\{` |
+| `$$` spaiate, o testo sulla stessa riga delle `$$` | `Errore $$ : NomeNota (spaiati)` oppure `(incollati al testo (riga NN))` | le `$$` vanno da sole sulla riga e sempre in coppia: lo script lo verifica da solo |
+| Caratteri LaTeX **dentro la matematica**: `&` `#` | `! Misplaced alignment tab character &` / `! You can't use macro parameter character #'` | escapali dentro `$…$` e `$$…$$`: `\&` `\#` |
 | Comandi LaTeX inventati (`\nonexistentmacro`) | `! Undefined control sequence` | usa solo ambienti e comandi dei pacchetti caricati da `header.tex` |
-| Nome del file con `& % # _ $ { }` | si rompe l'intestazione del PDF | rinomina il file |
-| File `.md` vuoto | PDF da 0 byte | lo script lo segnala (o lo salta se proprio vuoto) |
+| Nome del file con `& % # _ { } ^` o una `$` spaiata | si rompe l'intestazione del PDF | rinomina: lettere, numeri, spazi, `( ) , . ' - ~`, accenti |
+| Nome del file con `# ^ [ ] \|` | su `main` Obsidian non riesce ad aprire la nota, anche se il PDF compila | rinomina il file e aggiorna i `[[...]]` che puntano alla nota |
+| File `.md` vuoto | nessuno lo nota | lo script lo salta: `Salto: NomeNota (file vuoto)` |
+| File `.md` con solo il blocco YAML | `PDF vuoto generato: NomeNota` | è contato come **fallito**: serve almeno una riga di contenuto |
+
+> [!NOTE]
+> Nel **testo normale** `% & # _ { } ^ ~` li gestisce pandoc: non devi escaparli a mano. Un `%` o un `#` a inizio riga restano nel PDF come testo (`#tag` è tranquillo; `# ` con lo spazio diventa un titolo). Diventano un problema solo **dentro la matematica**.
 
 Queste invece **compilano ma producono un PDF brutto/monco**:
 
@@ -175,7 +180,15 @@ Queste invece **compilano ma producono un PDF brutto/monco**:
 |---|---|---|
 | Embed `![[file.c]]` / `![[immagine.png]]` | pandoc non trova la risorsa e la sostituisce con il testo alternativo: contenuto **perso in silenzio** | incolla il contenuto in un blocco di codice, o togli l'embed |
 | Blocchi ` ```mermaid ` | il sorgente mermaid finisce nel PDF come blocco di codice | converti in TikZ (vedi sotto) |
-| Callout foldable `>[!note]-` | il `-` resta nel testo | su `production` togli il `-` o il callout |
+| Callout foldable `>[!note]-` | il `-` avanzato diventa un **punto elenco**: `• contenuto` | su `production` togli il `-` o tutto il callout |
+| Tipo di callout con spazi o emoji (`>[!Esercizio 1]`, `>[!Approfondimento 📌]`) | il marcatore non viene riconosciuto: `[!Esercizio 1]` resta **stampato nel PDF** | tipi fatti solo di lettere, numeri, `_` e `-` |
+| Callout annidati (`>>[!esempio]` dentro un callout) | il box interno sparisce, resta una `>` solitaria | appiattisci su un solo callout |
+| `%%commento Obsidian%%` | viene **stampato nel PDF**: il commento nascosto diventa visibile | su `production` cancellalo a mano |
+| `==testo evidenziato==` | resta com'è, `==` inclusi | usa `**grassetto**` o un callout |
+| `[[Altra nota\|testo alternativo]]` | nel PDF rimane solo il testo alternativo: il nome della nota di destinazione sparisce | va bene così, ma sappilo |
+| `Testo[^nota]` senza la definizione `[^nota]:` | resta scritto `[^nota]` nel PDF | definisci la nota a piè di pagina o togli la parentesi |
+| Emoji nel testo | spariscono (avvisi `Missing character ... in font`), la build esce `0` lo stesso | se ti servono, sostituiscili con parole |
+| `%` dentro la matematica, es. `$p=50%$` | LaTeX lo legge come commento e si mangia il resto della riga, `$` di chiusura incluso: viene `𝑝 = 50` | scrivi `\%` |
 
 ## 🔧 Step 5 - Adattare i file su `production`
 
@@ -218,7 +231,7 @@ Su `production` non vengono risolti: o il contenuto lo scrivi direttamente in un
 Il marcatore `>[!tipo]` viene **rimosso in automatico** da `createPdf.sh`, che trasforma il callout in una citazione (e `header.tex` la rende un box). Quindi un callout semplice su `production` può restare: si toglie a mano quando dentro c'è roba Obsidian-specifica (foldable `>-`, callout annidati, embed dentro il callout).
 
 > [!NOTE]
-> Residui ancora presenti su `production`, da ripulire alla prima occasione: `![[...]]` in `Fondamenti di Informatica/C.md`, `Liste a puntatori.md`, `Tipi di dato strutturati.md`, e un blocco `mermaid` in `Fisica 1/Cosa è la Fisica?.md`.
+> Residui noti su `production`, aggiornati a 13/10/2026: `![[...]]` in `Fondamenti di Informatica/C.md` (1), `Liste a puntatori.md` (1), `Tipi di dato strutturati.md` (2), e un blocco `mermaid` in `Fisica 1/Cosa è la Fisica?.md` (1). **Non bloccano la build**: compilano e perdono solo contenuto (testo alternativo al posto dell'embed, sorgente mermaid al posto del diagramma). Da tradurre quando capitano sotto mano.
 
 ## 🧪 Step 6 - Verifica della compilazione
 Su `production`, dopo le modifiche:
@@ -226,7 +239,7 @@ Su `production`, dopo le modifiche:
 ./createPdf.sh
 echo $?      # deve essere 0
 ```
-**Questo è il test vero:** se esce `1`, la release genererà PDF mancanti o una workflow rossa.
+**Questo è il test vero:** se esce `1` la workflow si ferma lì: `zipFolders.sh` e la fase di upload non girano, la release resta **senza nessun file** e la workflow è rossa.
 
 Se qualcosa non compila, correggi e rilancia. Quando tutto esce `0`, apri la PR del branch di adattamento verso `production`, mergeala e si procede con la release.
 
@@ -244,6 +257,17 @@ pandoc "CartellaMateria/NomeNota.md" \
 
 sed -n '130,150p' /tmp/nota.tex
 ```
+
+##### Controllo rapido di una sola nota
+Per non rilanciare tutta la build (minuti) quando ti serve solo l'errore di una nota:
+
+```bash
+printf '\\newcommand{\\headerTitolo}{Legge oraria}\n\\newcommand{\\headerMateria}{Fisica 1}\n' > /tmp/m.tex
+pandoc - -f markdown+wikilinks_title_after_pipe+hard_line_breaks --pdf-engine=lualatex \
+  -V lang=it-IT -H /tmp/m.tex -H header.tex -o /tmp/nota.pdf < "Fisica 1/Legge oraria.md"
+```
+
+Serve per forza il `printf` iniziale: senza le due macro dell'intestazione pandoc esce `43` con `! Undefined control sequence`. E questo controllo **salta la pre-elaborazione** dello script, quindi non verifica le `$$`: serve a leggere in fretta un errore LaTeX, non a dire "la nota compila".
 
 ##### "Errore: header.tex non trovato"
 Stai lanciando lo script da una cartella che non è la root del repo. `cd` nella cartella degli appunti e riprova.
@@ -288,4 +312,4 @@ Normale: lualatex mette ~3-4 secondi per nota, una build completa sono alcuni mi
 [ ] PR -> production, merge
 [ ] se la correzione serve anche su main, PR separata su main
 [ ] release
-```
+``oggi`
